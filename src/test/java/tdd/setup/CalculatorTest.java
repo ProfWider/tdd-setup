@@ -59,4 +59,21 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("6", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("interim result for nested calculations")
+    void calculatorInterimResult() {
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        assertEquals("4", calc.readScreen());
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        assertEquals("6", calc.readScreen());
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        assertEquals("8", calc.readScreen());
+        calc.pressDigitKey(2);
+    }
 }

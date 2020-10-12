@@ -47,4 +47,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("1", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("can do nested addition")
+    void calculatorNestedAddition() {
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
 }

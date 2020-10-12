@@ -18,7 +18,6 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
         }
     }
@@ -30,6 +29,18 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+        if(!latestOperation.isEmpty()) {
+            latestValue = switch(latestOperation) {
+                case "+" -> latestValue + Double.parseDouble(screen);
+                case "-" -> latestValue - Double.parseDouble(screen);
+                case "x" -> latestValue * Double.parseDouble(screen);
+                case "/" -> latestValue / Double.parseDouble(screen);
+                default -> throw new IllegalArgumentException();
+            };
+        } else {
+            latestValue = Double.parseDouble(screen);
+        }
+
         latestOperation = operation;
     }
 

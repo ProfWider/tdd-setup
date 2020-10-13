@@ -9,23 +9,28 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private boolean firstInput = true;
+
     public String readScreen() {
         return screen;
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+        if(latestOperation.isEmpty() && !firstInput) {
             screen = screen + digit;
         } else {
             screen = Integer.toString(digit);
         }
+
+        firstInput = false;
     }
 
     public void pressClearKey() {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+        firstInput = true;
     }
 
     public void pressOperationKey(String operation)  {
@@ -48,7 +53,7 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        screen = screen.contains(".") ? screen : screen + ".";
     }
 
     public void pressNegative() {

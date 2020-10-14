@@ -27,5 +27,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("2", calc.readScreen());
     }
-   
+    // Aufgabe 2.1 Funktion finden die nicht funktioniert
+    @Test
+    void printDot() {
+        Calculator calc = new Calculator();
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("0.66", calc.readScreen());
+    }
 }

@@ -34,7 +34,9 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        //Bugfix für 1. roten Test
+        //Wir prüfen jetzt einfach nur ob es vorkommt
+        if(!screen.contains(".")) screen = screen + ".";
     }
 
     public void pressNegative() {

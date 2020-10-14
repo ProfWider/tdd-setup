@@ -40,4 +40,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0.66", calc.readScreen());
     }
+
+    //Aufgabe 2.2 zweiter Operand kann nur einstellig sein
+    @Test
+    void printDreihundertDreissig() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressEquals();
+        assertEquals("330", calc.readScreen());
+    }
+
 }

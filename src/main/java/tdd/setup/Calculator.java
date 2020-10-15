@@ -15,12 +15,8 @@ public class Calculator {
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
-            screen = screen + digit;
-        } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
-        }
+        //Bugfix für den 2. roten Test (mehrstellige Operanden)
+        screen = screen + digit;
     }
 
     public void pressClearKey() {
@@ -31,10 +27,17 @@ public class Calculator {
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        // Teil Bugfix 2. roter Test
+        //mehrstellige Operanden
+        latestValue = Double.parseDouble(screen);
+        //"screen ist danach leer"
+        screen = "";
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        //Bugfix für 1. roten Test
+        //Wir prüfen jetzt einfach nur ob es vorkommt
+        if(!screen.contains(".")) screen = screen + ".";
     }
 
     public void pressNegative() {

@@ -1,11 +1,14 @@
 package tdd.setup;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
     private String screen = "0";
 
-    private double latestValue;
+    private String latestValue = "0";
 
     private String latestOperation = "";
 
@@ -13,20 +16,26 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
+        String s=String.valueOf(latestValue);
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+        if(latestOperation.isEmpty() && screen.equalsIgnoreCase("0")) {
+            screen = screen.substring(1) + digit;
+       } else if (latestOperation.isEmpty() && !screen.equalsIgnoreCase("0")) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if(latestValue.equalsIgnoreCase("0")) {
+                latestValue = latestValue.substring(1) + digit;
+            } else {
+                latestValue = latestValue + digit;
+            }
         }
     }
 
     public void pressClearKey() {
         screen = "0";
         latestOperation = "";
-        latestValue = 0.0;
+        latestValue = "0";
     }
 
     public void pressOperationKey(String operation)  {
@@ -34,7 +43,11 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if (!latestOperation.isBlank()) {
+            if(!latestValue.endsWith(".")) latestValue = latestValue + ".";
+        } else {
+            if (!screen.endsWith(".")) screen = screen + ".";
+        }
     }
 
     public void pressNegative() {
@@ -42,14 +55,18 @@ public class Calculator {
     }
 
     public void pressEquals() {
-        var result = switch(latestOperation) {
-            case "+" -> latestValue + Double.parseDouble(screen);
-            case "-" -> latestValue - Double.parseDouble(screen);
-            case "x" -> latestValue * Double.parseDouble(screen);
-            case "/" -> latestValue / Double.parseDouble(screen);
+        BigDecimal bigDecimalScreen = new BigDecimal(screen);
+        BigDecimal bigDecimalLatestValue = new BigDecimal(latestValue);
+        BigDecimal result = switch(latestOperation) {
+            case "+" -> bigDecimalScreen.add(bigDecimalLatestValue);
+            case "-" -> bigDecimalScreen.subtract(bigDecimalLatestValue);
+            case "x" -> bigDecimalScreen.multiply(bigDecimalScreen);
+            //case "/" -> bigDecimalScreen.divide(bigDecimalLatestValue);
+            case "/" -> bigDecimalScreen.divide(bigDecimalLatestValue, MathContext.DECIMAL32);
             default -> throw new IllegalArgumentException();
         };
-        screen = Double.toString(result);
+        screen = result.toString();
+
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }

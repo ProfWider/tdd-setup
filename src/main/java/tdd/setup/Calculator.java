@@ -51,7 +51,11 @@ public class Calculator {
     }
 
     public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        if (!latestOperation.isBlank()) {
+            latestValue = latestValue.startsWith("-") ? latestValue.substring(1) : "-" + latestValue;
+        } else {
+            screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        }
     }
 
     public void pressEquals() {

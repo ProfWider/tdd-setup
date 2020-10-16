@@ -16,4 +16,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    
+    @Test
+    @DisplayName("should display result after subtracting the second number of the first one")
+   void calculatorCanDoThreeMinusTwo() {
+       Calculator calc = new Calculator();
+       calc.pressDigitKey(3);
+       calc.pressOperationKey("-");
+       calc.pressDigitKey(2);
+       calc.pressEquals();
+       assertEquals("1", calc.readScreen());
 }

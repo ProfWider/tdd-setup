@@ -22,8 +22,12 @@ class CalculatorTest {
     void calculatorCanClearDisplay(){
 
         Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
+        assertEquals(0.0, calc.getLatestValue());
+        assertEquals("", calc.getLatestOperation());
+
     }
 
 }

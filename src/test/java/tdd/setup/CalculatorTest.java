@@ -30,4 +30,14 @@ class CalculatorTest {
 
     }
 
+    @Test
+    @DisplayName("should convert an entered positive number to a negative number")
+    void calculatorCanConvertEnteredNumber(){
+
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressNegative();
+        assertEquals("-2", calc.readScreen());
+    }
+
 }

@@ -40,4 +40,15 @@ class CalculatorTest {
         assertEquals("-2", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display decimal numbers")
+    void calculatorCanDisplayDecimalNumber() {
+
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        assertEquals(5.2, calc.readScreen());
+            }
+
 }

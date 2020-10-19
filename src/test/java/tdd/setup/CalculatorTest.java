@@ -27,4 +27,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("9", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after adding three positive numbers")
+    void calculatorCanDoTwoPlusTwoPlusTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
 }

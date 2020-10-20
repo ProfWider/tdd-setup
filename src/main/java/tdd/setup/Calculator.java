@@ -12,11 +12,14 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
-    public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+    public void pressDigitKey(int digit) {
+        if (digit > 9 || digit < 0) throw new IllegalArgumentException();
+
+        if (latestOperation.isEmpty() && screen != "0") {
             screen = screen + digit;
+        } else if (latestOperation.isEmpty() && screen == "0") {
+            screen = Integer.toString(digit);
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
@@ -47,6 +50,7 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            case "" -> Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

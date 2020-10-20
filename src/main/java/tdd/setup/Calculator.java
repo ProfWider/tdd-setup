@@ -31,14 +31,17 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+
         latestOperation = operation;
     }
 
     public void pressDotKey() {
+
         if(!screen.endsWith(".")) screen = screen + ".";
     }
 
     public void pressNegative() {
+
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
@@ -51,6 +54,7 @@ public class Calculator {
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);
+
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }

@@ -2,14 +2,15 @@ package tdd.setup;
 
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
-
-    private String screen = "0";
+    
+    private String screen = "";
 
     private double latestValue;
 
     private String latestOperation = "";
 
     public String readScreen() {
+      //  if(latestValue == 0.0 && latestOperation =="") screen = "0";
         return screen;
     }
     public void pressDigitKey(int digit) {
@@ -41,12 +42,17 @@ public class Calculator {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
-    public void pressEquals() {
+    /*
+    kann nur mit genannten operatoren rechnen. im vergleich zu calculator.com fehlt beispielsweise Wurzel- und
+    Prozentrechnung
+     */
+        public void pressEquals() {
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            case "" -> latestValue = Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

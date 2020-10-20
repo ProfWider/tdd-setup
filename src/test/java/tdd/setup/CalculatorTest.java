@@ -26,4 +26,13 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("6", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display a point number")
+    void calculatorCanDisplayPointNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        assertEquals("3.5", calc.readScreen());
+    }
 }

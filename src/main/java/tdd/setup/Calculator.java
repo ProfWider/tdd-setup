@@ -14,7 +14,7 @@ public class Calculator {
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-        
+
         screen = screen + digit;
     }
 

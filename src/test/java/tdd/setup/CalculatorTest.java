@@ -40,4 +40,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("6", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after calculating percentage into decimal")
+    void calculatorCanDoPercentageToDecimal(){
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("%");
+        calc.pressEquals();
+        assertEquals( "0.15", calc.readScreen());
+    }
 }

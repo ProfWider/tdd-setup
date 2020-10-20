@@ -10,10 +10,25 @@ class CalculatorTest {
     @DisplayName("should display result after adding two positive numbers")
     void calculatorCanDoTwoPlusTwo() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
+        calc.pressDigitKey(4);
         calc.pressOperationKey("+");
-        calc.pressDigitKey(2);
+        calc.pressDigitKey(3);
         calc.pressEquals();
-        assertEquals("4", calc.readScreen());
+        assertEquals("7", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after adding two positive numbers")
+    void calculatorCanDoEightTimesNegativeTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(8);
+        calc.pressOperationKey("x");
+        calc.pressNegative(-2);
+        calc.pressEquals();
+        assertEquals("-16", calc.readScreen());
+    }
+
+
+
+
 }

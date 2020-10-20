@@ -10,6 +10,7 @@ public class Calculator {
     private String latestOperation = "";
 
     public String readScreen() {
+
         return screen;
     }
     public void pressDigitKey(int digit) {

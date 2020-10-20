@@ -16,4 +16,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("Number gets cleared when button is pressed")
+    void calculatorCanClear() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+
+    }
 }

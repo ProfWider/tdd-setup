@@ -35,4 +35,12 @@ class CalculatorTest {
         calc.pressDigitKey(5);
         assertEquals("3.5", calc.readScreen());
     }
+    @Test
+    @DisplayName("should show same number")
+    void calculatorShowsSameNumber() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(7);
+        calc.pressEquals();
+        assertEquals("7", calc.readScreen());
+    }
 }

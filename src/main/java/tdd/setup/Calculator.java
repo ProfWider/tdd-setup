@@ -54,7 +54,7 @@ public class Calculator {
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
             //zweiter fix
-            case "" -> latestValue = Double.parseDouble(screen);
+            //case "" -> latestValue = Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

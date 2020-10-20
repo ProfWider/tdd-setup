@@ -49,14 +49,14 @@ class CalculatorTest {
         c.readScreen();
         assertEquals("90.15", c.readScreen());
     }
-//
-//    @Test
-//    @DisplayName("Should display negative value of input")
-//    void calCanConvertInput() {
-//        Calculator c = new Calculator();
-//        c.pressNegative();
-//        c.pressDigitKey(5);
-//        c.pressEquals();
-//        assertEquals("-5", c.readScreen());
-//    }
+
+    @Test
+    @DisplayName("Should display negative value of input")
+    void calCanConvertInput() {
+        Calculator c = new Calculator();
+        c.pressNegative();
+        c.pressDigitKey(5);
+        c.pressEquals();
+        assertEquals("-5", c.readScreen());
+    }
 }

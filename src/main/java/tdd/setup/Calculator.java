@@ -14,13 +14,8 @@ public class Calculator {
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-
-        if(latestOperation.isEmpty()) {
-            screen = screen + digit;
-        } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
-        }
+        
+        screen = screen + digit;
     }
 
     public void pressClearKey() {
@@ -30,7 +25,20 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+        if(latestOperation.isEmpty()){
+            latestValue = Double.parseDouble(screen);
+        } else {
+            latestValue = switch(latestOperation) {
+                case "+" -> latestValue + Double.parseDouble(screen);
+                case "-" -> latestValue - Double.parseDouble(screen);
+                case "x" -> latestValue * Double.parseDouble(screen);
+                case "/" -> latestValue / Double.parseDouble(screen);
+                default -> throw new IllegalArgumentException();
+            };
+        }
+        screen = "0";
         latestOperation = operation;
+
     }
 
     public void pressDotKey() {

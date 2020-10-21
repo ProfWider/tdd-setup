@@ -37,4 +37,15 @@ class CalculatorTest {
         assertEquals("0.2", calc.readScreen());
 
     }
+
+    @Test
+    @DisplayName("should put a - for negative numbers")
+    void calculatorCanNegativeNumbers(){
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(2);
+        assertEquals("-2", calc.readScreen());
+    }
 }
+
+

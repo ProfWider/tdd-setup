@@ -26,4 +26,28 @@ class CalculatorTest {
         assertEquals("0", calculator.readScreen());
 
     }
+
+    @Test
+    @DisplayName("should return a dot on display")
+    void PressDotKey() {
+        Calculator calculator = new Calculator();
+        calculator.pressDigitKey(2);
+        calculator.pressDotKey();
+        calculator.pressDigitKey(2);
+        assertEquals("2.2", calculator.readScreen());
+
+    }
+    @Test
+    @DisplayName("should return a negative number on display")
+    void PressNegative() {
+        Calculator calculator = new Calculator();
+        calculator.pressNegative();
+        calculator.pressDigitKey(4);
+        assertEquals("-4", calculator.readScreen());
+    }
+
+
+
 }
+
+

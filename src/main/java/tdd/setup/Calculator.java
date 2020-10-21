@@ -15,7 +15,6 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = (screen == "0") ? Integer.toString(digit) : screen + digit;
-                    // screen.substring(1) + digit;
 
         } else {
             latestValue = Double.parseDouble(screen);
@@ -38,7 +37,7 @@ public class Calculator {
     }
 
     public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        screen = screen.startsWith("-") ? screen.substring(1) : "-";
     }
 
     public void pressEquals() {

@@ -16,15 +16,13 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-    //first successful test
+    //first failed test
     @Test
-    @DisplayName("should display result after subtracting two positive numbers")
+    @DisplayName("should display same digit after pressing Equals without operation")
     void calculatorCanDoFourMinusFour() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(4);
-        calc.pressOperationKey("-");
-        calc.pressDigitKey(2);
         calc.pressEquals();
-        assertEquals("2", calc.readScreen());
+        assertEquals("4", calc.readScreen());
     }
 }

@@ -16,4 +16,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after adding two positive numbers")
+    void calculatorFivePointFiveTimesNegativeTwo(){
+        Calculator calculation = new Calculator();
+        calculation.pressDigitKey(5);
+        calculation.pressDotKey();
+        calculation.pressDigitKey(5);
+        calculation.pressOperationKey("x");
+        calculation.pressNegative();
+        calculation.pressDigitKey(2);
+        calculation.pressEquals();
+        assertEquals("-11",calculation.readScreen());
+    }
+
 }

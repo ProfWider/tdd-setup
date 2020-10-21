@@ -35,7 +35,7 @@ class CalculatorTest {
         Calculator calc2 = new Calculator();
         calc2.pressDigitKey(8);
         calc2.pressDotKey();
-        calc2.pressDigitKey(2);
+        calc2.pressDigitKey(-2);
         calc2.pressOperationKey("x");
         calc2.pressDigitKey(2);
         calc2.pressEquals();

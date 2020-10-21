@@ -10,7 +10,7 @@ class CalculatorTest {
     @DisplayName("should display result after adding two positive numbers")
     void calculatorCanDoTwoPlusTwo() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(4);
+        calc.pressDigitKey(14);
         calc.pressOperationKey("+");
         calc.pressDigitKey(3);
         calc.pressEquals();
@@ -18,17 +18,15 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display result after adding two positive numbers")
+    @DisplayName("should display result after multiplying one positive number with negative")
     void calculatorCanDoEightTimesNegativeTwo() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(8);
         calc.pressOperationKey("x");
-        calc.pressNegative(-2);
+        calc.pressNegative();
+        calc.pressDigitKey(2);
         calc.pressEquals();
         assertEquals("-16", calc.readScreen());
     }
-
-
-
 
 }

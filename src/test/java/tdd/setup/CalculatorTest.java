@@ -16,4 +16,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should return zero when the delete key is pressed")
+    void PressClearKey() {
+        Calculator calculator = new Calculator();
+        calculator.pressDigitKey(2);
+        calculator.pressClearKey();
+        assertEquals("0", calculator.readScreen());
+
+    }
 }

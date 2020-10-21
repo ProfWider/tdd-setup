@@ -9,18 +9,35 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private int counter = 0;
+
     public String readScreen() {
+
         return screen;
     }
     public void pressDigitKey(int digit) {
+
+
+
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+
+        counter = counter + 1;
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+
+        }
+
+        else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
         }
+
+        if(screen.startsWith("0") && counter <= 1){
+            screen = screen.substring(1);
+
+        }
+
     }
 
     public void pressClearKey() {
@@ -30,16 +47,28 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+
         latestOperation = operation;
     }
 
     public void pressDotKey() {
+
         if(!screen.endsWith(".")) screen = screen + ".";
     }
 
     public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+
+        if(screen.startsWith("0")){
+            screen = "-";
+        }
+
+        else {
+            screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        }
     }
+
+
+
 
     public void pressEquals() {
         var result = switch(latestOperation) {
@@ -53,3 +82,5 @@ public class Calculator {
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }
+
+

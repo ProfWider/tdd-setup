@@ -27,6 +27,6 @@ class CalculatorTest {
         calctest.pressOperationKey("x");
         calctest.pressDigitKey(2);
         calctest.pressEquals();
-        assertEquals("5", calctest.readScreen());
+        assertEquals("-5", calctest.readScreen());
         }
     }

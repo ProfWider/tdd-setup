@@ -29,4 +29,17 @@ class CalculatorTest {
         assertEquals("12", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("Test: should display result when multiplying with negative number")
+    void calculatorUsesMinusCorrectly() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        calc.pressNegative();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(4);
+        calc.pressEquals();
+        assertEquals("-20", calc.readScreen());
+
+    }
 }

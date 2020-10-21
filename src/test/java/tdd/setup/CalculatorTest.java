@@ -16,4 +16,13 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should clear the display")
+    void calculatorcanclear() {
+        Calculator calc = new Calculator();
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
+
+
 }

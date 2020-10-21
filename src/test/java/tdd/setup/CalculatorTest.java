@@ -16,13 +16,13 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-    //first failed test
+    //second failed test
     @Test
-    @DisplayName("should display same digit after pressing Equals without operation")
-    void calculatorCanDoFourMinusFour() {
+    @DisplayName("should display the hundredth of the digit on the screen after pressing %")
+    void calculatorCanDoTwoHundertstel() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(4);
-        calc.pressEquals();
-        assertEquals("4", calc.readScreen());
+        calc.pressDigitKey(2);
+        calc.pressFunctionKey("%");
+        assertEquals("0.02", calc.readScreen());
     }
 }

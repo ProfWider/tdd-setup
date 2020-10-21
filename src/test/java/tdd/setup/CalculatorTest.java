@@ -23,7 +23,7 @@ class CalculatorTest {
         Calculator calc = new Calculator();
         calc.pressDigitKey(8);
         calc.pressOperationKey("x");
-        calc.pressNegative();
+        calc.pressNegative(-);
         calc.pressDigitKey(2);
         calc.pressEquals();
         assertEquals("-16", calc.readScreen());

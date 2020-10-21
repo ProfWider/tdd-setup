@@ -31,10 +31,10 @@ class CalculatorTest {
     @DisplayName("should put a dot after a number to type decimal number")
     void calculatorCanDecimal(){
         Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
         calc.pressDotKey();
         calc.pressDigitKey(2);
-        assertEquals("2.2", calc.readScreen());
+        assertEquals("0.2", calc.readScreen());
 
     }
 }

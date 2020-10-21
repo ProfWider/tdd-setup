@@ -9,19 +9,35 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private int counter = 0;
+
     public String readScreen() {
 
         return screen;
     }
     public void pressDigitKey(int digit) {
+
+
+
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+
+        counter = counter + 1;
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+
+        }
+
+        else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
         }
+
+        if(screen.startsWith("0") && counter <= 1){
+            screen = screen.substring(1);
+
+        }
+
     }
 
     public void pressClearKey() {
@@ -54,7 +70,8 @@ public class Calculator {
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);
-
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }
+
+

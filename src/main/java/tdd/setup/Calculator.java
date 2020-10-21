@@ -12,6 +12,7 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 

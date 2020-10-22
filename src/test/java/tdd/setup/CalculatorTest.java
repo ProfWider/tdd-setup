@@ -18,7 +18,7 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display number 0 after pressing clear button")
+    @DisplayName("should display the number 0 after pressing clear button")
     void calculatorCanClearResult() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(2);
@@ -29,6 +29,21 @@ class CalculatorTest {
         assertEquals("0", calc.readScreen());
     }
 
+
+    @Test
+    @DisplayName("should display result after adding a floating-point number")
+    void calculatorCanHandleFloatingPointNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(1);
+        calc.pressEquals();
+        assertEquals("3.6", calc.readScreen());
+    }
 
 
 

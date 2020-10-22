@@ -5,7 +5,8 @@ public class Calculator {
 
     private String screen = "0";
 
-    private double latestValue;
+    private double latestValue = 0.0;
+    private Boolean isSecound = false;
 
     private String latestOperation = "";
 
@@ -24,7 +25,11 @@ public class Calculator {
 
                 screen = screen.startsWith("-") ? "-" + Integer.toString(digit) : Integer.toString(digit);
             }else {
-                screen = screen + Integer.toString(digit);
+                if (isSecound){
+                    screen = Integer.toString(digit);
+                }else {
+                    screen = screen + Integer.toString(digit);
+                }
             }
 
         }
@@ -37,7 +42,12 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation) {
-        latestOperation = operation;
+        if (latestOperation.isEmpty()) {
+            latestOperation = operation;
+        }else {
+            isSecound = true;
+            latestValue = latestValue + Integer.parseInt(screen);
+        }
         //screen = "0";
     }
 

@@ -43,8 +43,9 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if (!screen.endsWith(".")) screen = screen + ".";
+        if (!screen.contains(".")) screen = screen + ".";
     }
+
 
     public void pressNegative() {
         if (!screen.startsWith("-")) screen = "-" + screen;

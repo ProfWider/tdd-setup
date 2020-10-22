@@ -13,6 +13,14 @@ public class Calculator {
         return screen;
     }
 
+    public String checkLatestOperation(){
+        return latestOperation;
+    }
+
+    public Double checkLatestValue(){
+        return latestValue;
+    }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
@@ -35,7 +43,7 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if (!screen.endsWith(".")) screen = screen + ".";
     }
 
     public void pressNegative() {

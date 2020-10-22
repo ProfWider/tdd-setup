@@ -30,7 +30,7 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("Test: should display result when multiplying with negative number")
+    @DisplayName("Test: should display result after double using pressNegative")
     void calculatorUsesMinusCorrectly() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(5);
@@ -38,8 +38,24 @@ class CalculatorTest {
         calc.pressNegative();
         calc.pressOperationKey("x");
         calc.pressDigitKey(4);
+        calc.pressNegative();
         calc.pressEquals();
-        assertEquals("-20", calc.readScreen());
+        assertEquals("20", calc.readScreen());
 
     }
+
+    @Test
+    @DisplayName("Test: should display result after double using pressDotKey")
+    void calculatorCanClearContents() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(4);
+        calc.pressEquals();
+        assertEquals("14", calc.readScreen());
+    }
+
 }

@@ -33,12 +33,13 @@ class CalculatorTest {
         calc.pressNegative();
         assertEquals("-4", calc.readScreen());
     }
-//    @Test
-//   @DisplayName("should display result after adding two positive numbers")
-//    void pressDotKey() {
-//        Calculator calc = new Calculator();
-//        calc.pressDigitKey(4);
-//        calc.pressDotKey();
-//        assertEquals("4.", calc.readScreen());
-//    }
+    @Test
+    @DisplayName("should display result after adding two positive numbers")
+    void pressDotKey() {
+       Calculator calc = new Calculator();
+        calc.pressDigitKey(4);
+        calc.pressClearKey();
+        calc.pressDigitKey(3);
+        assertEquals("3", calc.readScreen());
+    }
 }

@@ -37,7 +37,7 @@ public class Calculator {
         latestOperation = operation;
     }
 
-    public void pressDotKey() { if(!screen.endsWith("."))
+    public void pressDotKey() { if(!screen.contains("."))
 
 
         screen = screen + ".";

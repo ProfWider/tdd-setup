@@ -29,18 +29,18 @@ class CalculatorTest {
         assertEquals("-4", calc.readScreen());
     }
 
-    @Test
-    @DisplayName("should display 0 after pressing clear Key")
-    void calculatorCanClearScreen() {
-        Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
-        calc.pressOperationKey("x");
-        calc.pressNegative();
-        calc.pressDigitKey(2);
-        calc.pressEquals();
-        calc.pressClearKey();
-        assertEquals("0",calc.readScreen());
-    }
+   // @Test
+    //@DisplayName("should display 0 after pressing clear Key")
+    //void calculatorCanClearScreen() {
+      //  Calculator calc = new Calculator();
+       // calc.pressDigitKey(2);
+        //calc.pressOperationKey("x");
+        //calc.pressNegative();
+        //calc.pressDigitKey(2);
+        //calc.pressEquals();
+        //calc.pressClearKey();
+        //assertEquals("0",calc.readScreen());
+    //}
 
     @Test@DisplayName("should display the correct number after minusing two numbers, " +
             "one of them with dot(double or float number)")

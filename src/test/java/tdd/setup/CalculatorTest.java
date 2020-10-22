@@ -42,5 +42,16 @@ class CalculatorTest {
         assertEquals("-2.5", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after clear digit add new")
+    void calculatorCanClearAddNewDigit() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressClearKey();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        assertEquals("-5", calc.readScreen());
+    }
+
 }
 

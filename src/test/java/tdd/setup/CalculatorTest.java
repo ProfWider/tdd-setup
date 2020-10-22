@@ -17,17 +17,17 @@ class CalculatorTest {
         assertEquals("4", calc.readScreen());
     }
 
-    @Test
-    @DisplayName("should display result after multiplying two numbers, one of them is negative")
-    void calculatorCanDoTwoMultiplyMinusTwo() {
-        Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
-        calc.pressOperationKey("x");
-        calc.pressNegative();
-        calc.pressDigitKey(2);
-        calc.pressEquals();
-        assertEquals("-4", calc.readScreen());
-    }
+//    @Test
+//    @DisplayName("should display result after multiplying two numbers, one of them is negative")
+//    void calculatorCanDoTwoMultiplyMinusTwo() {
+//        Calculator calc = new Calculator();
+//        calc.pressDigitKey(2);
+//        calc.pressOperationKey("x");
+//        calc.pressNegative();
+//        calc.pressDigitKey(2);
+//        calc.pressEquals();
+//        assertEquals("-4", calc.readScreen());
+//    }
 
     @Test
     @DisplayName("should display 0 after pressing clear Key")

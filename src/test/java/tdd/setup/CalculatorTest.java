@@ -71,6 +71,16 @@ class CalculatorTest {
         assertEquals("-10", calc.readScreen());
     }
 
-
-
+    // 5. Fix zu diesem Test
+    @Test
+    @DisplayName("should display result after multiplying a negative number with a positive number")
+    void calculatorCanDoMinusFiveMultiplyTwo2() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-10", calc.readScreen());
+    }
 }

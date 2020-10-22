@@ -27,4 +27,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("9", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after add two negative numbers")
+    void calculatorCanAddNegativeNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("+");
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("-6", calc.readScreen());
+    }
+
 }

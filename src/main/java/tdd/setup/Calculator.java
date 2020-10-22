@@ -24,7 +24,7 @@ public class Calculator {
     }
 
     public void pressClearKey() {
-        screen = "0";
+        screen = "";
         latestOperation = "";
         latestValue = 0.0;
     }

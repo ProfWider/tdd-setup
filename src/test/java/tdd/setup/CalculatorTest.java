@@ -58,5 +58,19 @@ class CalculatorTest {
         assertEquals("5.2", calc.readScreen());
     }
 
+    // 4. weiterer neuer roter Test
+    @Test
+    @DisplayName("should display result after multiplying a negative number with a positive number")
+    void calculatorCanDoMinusFiveMultiplyTwo1() {
+        Calculator calc = new Calculator();
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-10", calc.readScreen());
+    }
+
+
 
 }

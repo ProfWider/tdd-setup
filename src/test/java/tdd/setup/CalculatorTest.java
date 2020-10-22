@@ -31,16 +31,16 @@ class CalculatorTest {
     }
 
     // erster rot
-//    @Test
-//    @DisplayName("should display result after adding nagativ to a number")
-//    void calculatorCanNagativ() {
-//        Calculator calc = new Calculator();
-//        calc.pressDigitKey(2);
-//        calc.pressDotKey();
-//        calc.pressDigitKey(5);
-//        calc.pressNegative();
-//        assertEquals("-2.5", calc.readScreen());
-//    }
+    @Test
+    @DisplayName("should display result after adding nagativ to a number")
+    void calculatorCanNagativ() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        assertEquals("-2.5", calc.readScreen());
+    }
 
 }
 

@@ -41,4 +41,29 @@ class CalculatorTest {
         assertEquals("-6", calc.readScreen());
     }
 
+
+    @Test
+    void printDreihundertDreissig() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+
+        calc.pressClearKey();
+
+        assertEquals("0", calc.readScreen());
+    }
+    @Test
+    @DisplayName("should display result after adding three positive numbers")
+    void calculatorCanDoTwoPlusTwoPlusTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
 }

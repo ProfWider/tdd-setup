@@ -30,4 +30,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("-5", calc.readScreen());
     }
+
+    //Test that showcase error - additionally displays a zero at the front of the typed number
+    @Test
+    @DisplayName("should display numbers as typed in")
+    void calculatorShouldDisplayAsTypedIn() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(5);
+        assertEquals("55", calc.readScreen());
+    }
 }

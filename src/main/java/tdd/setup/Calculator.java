@@ -3,13 +3,15 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = ""; // ich habe 0 entfernt damit ich richtiges Ergebnis bekomme
 
     private double latestValue;
 
     private String latestOperation = "";
 
     public String readScreen() {
+
+
         return screen;
     }
     public void pressDigitKey(int digit) {
@@ -41,6 +43,8 @@ public class Calculator {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
+
+    // im Vergleich zu https://www.online-calculator.com/ ,fehlt die Wurzel , die Prozent-Funktion, und die Funktion 1/X
     public void pressEquals() {
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);

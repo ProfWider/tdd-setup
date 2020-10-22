@@ -12,8 +12,10 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
@@ -21,6 +23,7 @@ public class Calculator {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
         }
+
     }
 
     public void pressClearKey() {
@@ -33,8 +36,7 @@ public class Calculator {
         latestOperation = operation;
     }
 
-    public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+    public void pressDotKey() { if(!screen.endsWith(".")) screen = screen + ".";
     }
 
     public void pressNegative() {

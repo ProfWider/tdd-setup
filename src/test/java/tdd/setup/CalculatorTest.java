@@ -18,11 +18,21 @@ class CalculatorTest {
     }
     @Test
     @DisplayName("should clear the display")
-    void calculatorcanclear() {
+    void calculatorCanClear() {
         Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should put a dot after the digit displayed")
+    void calculatorCanPutDot() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        assertEquals("2.2", calc.readScreen());
+    }
 
 }

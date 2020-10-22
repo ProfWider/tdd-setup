@@ -44,4 +44,19 @@ class CalculatorTest {
         assertEquals("5", calc.readScreen());
     }
 
+    // 3. Fix zu diesem Test
+    @Test
+    @DisplayName("should display result after adding a decimal number with a positive number")
+    void calculatorCanDoTwoDotTwoPlusThree2() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("5.2", calc.readScreen());
+    }
+
+
 }

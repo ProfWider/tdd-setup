@@ -16,4 +16,31 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+
+    // erster grüner tets
+    @Test
+    @DisplayName("should display result after adding two positive numbers and clear it")
+    void calculatorCanClear() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(1);
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
+
+    // erster rot
+//    @Test
+//    @DisplayName("should display result after adding nagativ to a number")
+//    void calculatorCanNagativ() {
+//        Calculator calc = new Calculator();
+//        calc.pressDigitKey(2);
+//        calc.pressDotKey();
+//        calc.pressDigitKey(5);
+//        calc.pressNegative();
+//        assertEquals("-2.5", calc.readScreen());
+//    }
+
 }
+

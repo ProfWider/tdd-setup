@@ -37,7 +37,10 @@ public class Calculator {
         latestOperation = operation;
     }
 
-    public void pressDotKey() { if(!screen.endsWith(".")) screen = screen + ".";
+    public void pressDotKey() { if(!screen.endsWith("."))
+
+
+        screen = screen + ".";
     }
 
     public void pressNegative() {

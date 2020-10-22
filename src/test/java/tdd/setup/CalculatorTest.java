@@ -32,6 +32,7 @@ class CalculatorTest {
         calc.pressDigitKey(2);
         calc.pressDotKey();
         calc.pressDigitKey(2);
+        calc.pressDotKey();
         assertEquals("2.2", calc.readScreen());
     }
 

@@ -25,5 +25,14 @@ class CalculatorTest {
         calc1.pressClearKey();
         assertEquals("0", calc1.readScreen());
     }
+
+    @Test
+    @DisplayName("should display the correct negative number")
+    void calculatorDisplaysNegativeNumber(){
+        Calculator calc2 = new Calculator();
+        calc2.pressDigitKey(9);
+        calc2.pressNegative();
+        assertEquals("-9", calc2.readScreen());
+    }
 }
 

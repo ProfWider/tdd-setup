@@ -16,6 +16,8 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
+            // Fixes bug from fourth test
+            if(digit != 0 && screen.startsWith("0")) screen = "";
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
@@ -34,7 +36,7 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        // Fixes bug from second test
+        // Fixes bug from third test
         if (screen.indexOf(".") > 0) return;
         if(!screen.endsWith(".")) screen = screen + ".";
     }

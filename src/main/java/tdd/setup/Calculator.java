@@ -22,8 +22,12 @@ public class Calculator {
                 screen = screen + digit;
             }
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if(screen.endsWith(".")){
+                screen = screen + digit;
+            } else{
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 

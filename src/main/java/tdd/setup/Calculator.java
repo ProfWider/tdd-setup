@@ -7,6 +7,8 @@ public class Calculator {
 
     private double latestValue;
 
+    private double secondLatestValue;
+
     private String latestOperation = "";
 
     public String readScreen() {
@@ -18,8 +20,13 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if(latestValue != 0.0) {
+                latestValue += Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            } else {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 
@@ -35,6 +42,15 @@ public class Calculator {
 
     public void pressDotKey() {
         if(!screen.endsWith(".")) screen = screen + ".";
+        if(screen.length()>3){
+            StringBuilder sb = new StringBuilder(screen);
+            sb.deleteCharAt(4);
+            screen = sb.toString();
+            System.out.println(screen);
+            latestValue=Double.parseDouble(screen);
+            System.out.println(latestValue);
+            screen = "0";
+        }
     }
 
     public void pressNegative() {
@@ -52,4 +68,5 @@ public class Calculator {
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
+
 }

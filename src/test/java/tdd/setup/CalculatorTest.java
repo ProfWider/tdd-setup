@@ -38,7 +38,7 @@ class CalculatorTest {
         calc.pressNegative();
         calc.pressDigitKey(2);
         calc.pressEquals();
-        calc.pressClearKey();
+        //calc.pressClearKey();
         assertEquals("0",calc.readScreen());
     }
 

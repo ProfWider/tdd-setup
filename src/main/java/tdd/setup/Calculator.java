@@ -47,9 +47,11 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            case "" -> Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
-        screen = Double.toString(result);
+        double ergebnis = Math.round(result * 100) / 100.00;
+        screen = Double.toString(ergebnis);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }

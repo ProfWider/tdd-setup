@@ -26,8 +26,8 @@ public class Calculator {
             }
         } else {
             if(previousValue.isEmpty()) {
-                latestValue = Double.parseDouble(screen);
                 screen =  Integer.toString(digit);
+                latestValue = Double.parseDouble(screen);
                 previousValue = Integer.toString(digit);
             } else {
                 previousValue = previousValue + digit;
@@ -40,6 +40,8 @@ public class Calculator {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+        calcValue = 0.0;
+        previousValue = "";
     }
 
     public void pressOperationKey(String operation)  {
@@ -50,11 +52,13 @@ public class Calculator {
 //if user presses dot key, a decimal place will follow
     public void pressDotKey() {
         if(!screen.endsWith(".")) screen = screen + ".";
-        previousValue = previousValue + ".";
+        previousValue = screen;
     }
+
 
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        previousValue = screen;
     }
 
     public void pressEquals() {

@@ -50,7 +50,8 @@ public class Calculator {
             case "" -> Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
-        screen = Double.toString(result);
+        double ergebnis = Math.round(result * 100) / 100.00;
+        screen = Double.toString(ergebnis);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }

@@ -17,7 +17,7 @@ class CalculatorTest {
         assertEquals("4", calc.readScreen());
     }
     @Test
-    @DisplayName("should display result after adding two positive numbers")
+    @DisplayName("should display result after multiplying a decimal number with a negative number")
     void calculatorFivePointFiveTimesNegativeTwo(){
         Calculator calculation = new Calculator();
         calculation.pressDigitKey(5);
@@ -29,5 +29,20 @@ class CalculatorTest {
         calculation.pressEquals();
         assertEquals("-11",calculation.readScreen());
     }
+
+    @Test
+    @DisplayName("Test auf Punkt vor Strich Rechnung")
+    void testAddingThreeNumbers(){
+        Calculator calcTwo = new Calculator();
+        calcTwo.pressDigitKey(5);
+        calcTwo.pressOperationKey("+");
+        calcTwo.pressDigitKey(2);
+        calcTwo.pressOperationKey("+");
+        calcTwo.pressDigitKey(2);
+        calcTwo.pressEquals();
+        assertEquals("12", calcTwo.readScreen());
+    }
+
+
 
 }

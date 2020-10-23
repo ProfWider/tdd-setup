@@ -27,4 +27,20 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("25", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("pressing 2 times pressDotKey() adds 2 '.' but expecting one '.'")
+    void calculatorAddsTwoDotes() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        System.out.println(calc.readScreen());
+        calc.pressDotKey();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("4.5", calc.readScreen());
+    }
+
 }

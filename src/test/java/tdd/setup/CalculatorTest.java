@@ -43,5 +43,18 @@ class CalculatorTest {
         assertEquals("9", calcTwo.readScreen());
     }
 
+    @Test
+    @DisplayName("Test auf ")
+    void testnext(){
+        Calculator calcThree = new Calculator();
+        calcThree.pressDigitKey(4);
+        calcThree.pressDotKey();
+        calcThree.pressDigitKey(1);
+        calcThree.pressDotKey();
+        calcThree.pressOperationKey("+");
+        calcThree.pressDigitKey(1);
+        assertEquals("5.1",calcThree.readScreen());
+    }
+
 
 }

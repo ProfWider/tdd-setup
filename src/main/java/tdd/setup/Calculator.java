@@ -34,6 +34,8 @@ public class Calculator {
     }
 
     public void pressDotKey() {
+        // Fixes bug from second test
+        if (screen.indexOf(".") > 0) return;
         if(!screen.endsWith(".")) screen = screen + ".";
     }
 

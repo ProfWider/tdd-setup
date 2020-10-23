@@ -18,7 +18,7 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display result after adding two positive numbers")
+    @DisplayName("should display result after subtracting two positive numbers")
     void calculatorCanDoTwoMinusTwo() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(2);

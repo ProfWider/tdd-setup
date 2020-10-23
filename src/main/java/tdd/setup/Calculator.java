@@ -47,6 +47,8 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            // Bugfix 3. Test
+            case "1/x" -> 1 / Double.parseDouble(screen);
 
             default -> throw new IllegalArgumentException();
         };

@@ -7,6 +7,8 @@ public class Calculator {
 
     private double latestValue;
 
+    private double secondLatestValue;
+
     private String latestOperation = "";
 
     public String readScreen() {
@@ -18,8 +20,13 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if(latestValue != 0.0) {
+                latestValue += Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            } else {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 

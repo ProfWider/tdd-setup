@@ -40,9 +40,8 @@ class CalculatorTest {
         calcTwo.pressOperationKey("+");
         calcTwo.pressDigitKey(2);
         calcTwo.pressEquals();
-        assertEquals("12", calcTwo.readScreen());
+        assertEquals("9", calcTwo.readScreen());
     }
-
 
 
 }

@@ -17,7 +17,7 @@ public class Calculator {
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException("Number not between 0-9.");
 
-
+        //Bugfix for 2 tests (calculation with multi-digits, double number)
         if(latestOperation.isEmpty() || latestValue != 0.0) {
             screen = screen + digit;
         } else {
@@ -54,7 +54,7 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
-            default -> throw new IllegalArgumentException("Wrong Operationkey");
+            default -> throw new IllegalArgumentException("Wrong Operation key");
         };
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0, screen.length() - 2);

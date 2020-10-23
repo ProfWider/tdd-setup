@@ -11,23 +11,24 @@ class CalculatorTest {
     void calculatorCanDoTwoPlusTwo() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(2);
-        calc.pressOperationKey("*");
+        calc.pressOperationKey("+");
         calc.pressDigitKey(2);
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
 
     @Test
-    @DisplayName("should display result after multiplying one positive number with negative")
-    void calculatorCanDoEightTimesNegativeTwo() {
+    @DisplayName("should display result after multiplying one multi-digit positive number with negative")
+    void calculatorCanDoMultiDigitTimesNegativeTwo() {
         Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
         calc.pressDigitKey(1);
         calc.pressDigitKey(1);
         calc.pressOperationKey("x");
         calc.pressNegative();
         calc.pressDigitKey(2);
         calc.pressEquals();
-        assertEquals("-22", calc.readScreen());
+        assertEquals("-222", calc.readScreen());
     }
 
     @Test

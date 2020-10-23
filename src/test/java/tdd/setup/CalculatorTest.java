@@ -29,7 +29,7 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display result after adding two-digit numbers")
+    @DisplayName("should display result after adding two-digit numbers ")
     void calculatorCanMultiplyDecimalNumbers() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(2);

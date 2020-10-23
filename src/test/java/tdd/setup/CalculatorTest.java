@@ -40,4 +40,21 @@ class CalculatorTest {
         calc.pressDigitKey(5);
         assertEquals("55", calc.readScreen());
     }
+
+    //Test that showcase error - it would not display the correct result of the operation typed in (with decimal numbers)
+    @Test
+    @DisplayName("should display the exact result of the operation typed in (decimal numbers)")
+    void calculatorCanMultiplyDecimalNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(9);
+        calc.pressDotKey();
+        calc.pressDigitKey(8);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(1);
+        calc.pressEquals();
+        assertEquals("20.58", calc.readScreen());
+
+    }
 }

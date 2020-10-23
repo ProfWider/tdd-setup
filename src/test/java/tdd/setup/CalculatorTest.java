@@ -43,4 +43,16 @@ class CalculatorTest {
         test2.pressEquals();
         assertEquals("-0.75", test2.readScreen());
     }
+
+    // 3. Test
+    @Test
+    @DisplayName("should display result after doing a multiplicative inverse")
+    void calculatorCanDoMultiplicativeInverse() {
+        Calculator test3 = new Calculator();
+        test3.pressDigitKey(4);
+        test3.pressOperationKey("1/x");
+        test3.pressEquals();
+        assertEquals("0.25", test3.readScreen());
+    }
+
 }

@@ -15,5 +15,49 @@ class CalculatorTest {
         calc.pressDigitKey(2);
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
+
     }
+    @Test @DisplayName("3 mal 2 ist 6")
+    void calculatorMultyplies() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
+
+
+
+    @Test @DisplayName("macht es den punkt?")
+    void calculatorDotKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(1);
+        assertEquals("3.1", calc.readScreen());
+    }
+
+    @Test @DisplayName("macht es clear?")
+    void CalculatorClearKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressClearKey();
+        assertEquals("0",calc.readScreen());
+    }
+
+    @Test @DisplayName("-3 x 2 = 6")
+    void calculatorNegativeKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressNegative();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-6",calc.readScreen());
+
+    }
+
+
+
 }

@@ -45,15 +45,18 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display result after subtracting two negative numbers")
-    void calculatorCanSubtractNegatives() {
-
-    }
-
-    @Test
-    @DisplayName("should display result after multiplying a negative with a positive number")
-    void calculatorCanMultiplyPositiveAndNegative() {
-
+    @DisplayName("should display result of subtraction with a negative number after clearing the first input")
+    void calculatorCanSubtractNegativesAfterClear() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("+");
+        calc.pressClearKey();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-7", calc.readScreen());
     }
 }
 

@@ -41,6 +41,6 @@ class CalculatorTest {
         test2.pressDigitKey(2);
         test2.pressNegative();
         test2.pressEquals();
-        assertEquals("0.75", test2.readScreen());
+        assertEquals("-0.75", test2.readScreen());
     }
 }

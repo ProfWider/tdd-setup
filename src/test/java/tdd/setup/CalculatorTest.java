@@ -36,6 +36,19 @@ class CalculatorTest {
         assertEquals("3.1", calc.readScreen());
     }
 
+    @Test @DisplayName("funktioniert der negative key?")
+    void calculatorNegativeKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressNegative();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("6",calc.readScreen());
+
+    }
+
+
 
 
 

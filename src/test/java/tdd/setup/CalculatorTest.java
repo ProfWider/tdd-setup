@@ -40,4 +40,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("60", calc.readScreen());
     }
+    @Test
+    @DisplayName("should delete the lastest number after the operation")
+    void calculatorCanDeleteLatestValue() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressClearKey();
+        calc.pressDigitKey(4);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
+
 }
+

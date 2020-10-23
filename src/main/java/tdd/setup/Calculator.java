@@ -33,14 +33,10 @@ public class Calculator {
         }
     }
 
-    public void pressClearKey() {
-        if(!latestOperation.isEmpty() && screen!="0") {
-            screen = "0";
-        }else{
-            screen = "0";
-            latestOperation = "";
-            latestValue = 0.0;
-        }
+    public void pressClearKey(){
+        screen = "0";
+        latestOperation = "";
+        latestValue = 0.0;
 
     }
 

@@ -34,5 +34,6 @@ class CalculatorTest {
         calc2.pressNegative();
         assertEquals("-9", calc2.readScreen());
     }
+
 }
 

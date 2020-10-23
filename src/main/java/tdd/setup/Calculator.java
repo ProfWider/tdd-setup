@@ -6,6 +6,8 @@ public class Calculator {
     private String screen = "0";
 
     private double latestValue;
+    private String previousValue = "";
+    private double calcValue;
 
     private String latestOperation = "";
 
@@ -13,13 +15,24 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-
-        if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+        if (digit > 9 || digit < 0) throw new IllegalArgumentException();
+        if (latestOperation.isEmpty()) {
+            if (previousValue.isEmpty()) {
+                screen = screen + digit;
+                previousValue = Integer.toString(digit);
+            } else {
+                previousValue = previousValue + digit;
+                screen = previousValue;
+            }
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if(previousValue.isEmpty()) {
+                screen =  Integer.toString(digit);
+                latestValue = Double.parseDouble(screen);
+                previousValue = Integer.toString(digit);
+            } else {
+                previousValue = previousValue + digit;
+                latestValue = Double.parseDouble(previousValue);
+            }
         }
     }
 
@@ -27,26 +40,33 @@ public class Calculator {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+        calcValue = 0.0;
+        previousValue = "";
     }
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        calcValue = Double.parseDouble(previousValue);
+        previousValue = "";
     }
-
+//if user presses dot key, a decimal place will follow
     public void pressDotKey() {
         if(!screen.endsWith(".")) screen = screen + ".";
+        previousValue = screen;
     }
+
 
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        previousValue = screen;
     }
 
     public void pressEquals() {
         var result = switch(latestOperation) {
-            case "+" -> latestValue + Double.parseDouble(screen);
-            case "-" -> latestValue - Double.parseDouble(screen);
-            case "x" -> latestValue * Double.parseDouble(screen);
-            case "/" -> latestValue / Double.parseDouble(screen);
+            case "+" -> calcValue + latestValue;
+            case "-" -> calcValue - latestValue;
+            case "x" -> calcValue * latestValue;
+            case "/" -> calcValue / latestValue;
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

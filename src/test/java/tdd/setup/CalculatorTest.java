@@ -16,4 +16,57 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after subtraction")
+    void calculatorCanDoThreeMinusTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("1", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display result after adding two decimal digits")
+    void calculatorCanAddDecimalDigits() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(6);
+        calc.pressEquals();
+        assertEquals("4.8", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display zero after pressing clearKey")
+    void calculatorCanClear() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("+");
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display result of subtraction with a negative number after clearing the first input")
+    void calculatorCanSubtractNegativesAfterClear() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("+");
+        calc.pressClearKey();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-7", calc.readScreen());
+    }
 }
+
+

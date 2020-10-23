@@ -43,4 +43,12 @@ class CalculatorTest {
         assertEquals("4.5", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("pressing 2 times pressDotKey() adds 2 '.' but expecting one '.'")
+    void calculatorAddsAZeroAtBegin() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        assertEquals("1", calc.readScreen());
+    }
+
 }

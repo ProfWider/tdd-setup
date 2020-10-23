@@ -16,4 +16,39 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display zero when cleared")
+    void calculatorDisplaysZeroWhenCleared(){
+        Calculator calc1 = new Calculator();
+        calc1.pressDigitKey(5);
+        calc1.pressClearKey();
+        assertEquals("0", calc1.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display the correct negative number")
+    void calculatorDisplaysNegativeNumber(){
+        Calculator calc2 = new Calculator();
+        calc2.pressDigitKey(9);
+        calc2.pressNegative();
+        assertEquals("-9", calc2.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display result after adding two decimal numbers")
+    void calculatorDisplaysResultOfDecimalNumberAddition(){
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(2);
+        calc3.pressDotKey();
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressDotKey();
+        calc3.pressDigitKey(2);
+        calc3.pressEquals();
+        assertEquals("4.4", calc3.readScreen());
+    }
+
 }
+

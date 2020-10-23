@@ -7,16 +7,18 @@ public class Calculator {
 
     private double latestValue;
 
+
     private String latestOperation = "";
 
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException("Number not between 0-9.");
 
 
-        if(latestOperation.isEmpty()) {
+        if(latestOperation.isEmpty() || latestValue != 0.0) {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
@@ -36,7 +38,10 @@ public class Calculator {
 
     public void pressDotKey() {
 
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if(!screen.endsWith(".")) {
+            screen = screen + ".";
+
+        }
     }
 
     public void pressNegative() {
@@ -49,10 +54,10 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
-            default -> throw new IllegalArgumentException();
+            default -> throw new IllegalArgumentException("Wrong Operationkey");
         };
         screen = Double.toString(result);
-        if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        if(screen.endsWith(".0")) screen = screen.substring(0, screen.length() - 2);
     }
 
 }

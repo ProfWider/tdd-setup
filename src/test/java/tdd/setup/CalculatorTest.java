@@ -29,7 +29,7 @@ class CalculatorTest {
 
     }
     @Test
-    @DisplayName("test for adding a decimal number with a natural number")
+    @DisplayName("test for the dot for decimal numbers")
     void calculatorCanDoDot() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(3);
@@ -41,4 +41,18 @@ class CalculatorTest {
         assertEquals("3.33", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display the result after multiply a negative decimal number with a negative natural number")
+    void calculatorCanMultiplyNegativeDecimalNumberwithNegativeNumber() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("6.6", calc.readScreen());
+    }
 }

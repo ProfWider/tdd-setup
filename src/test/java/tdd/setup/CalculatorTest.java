@@ -35,5 +35,20 @@ class CalculatorTest {
         assertEquals("-9", calc2.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after adding two decimal numbers")
+    void calculatorDisplaysResultOfDecimalNumberAddition(){
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(2);
+        calc3.pressDotKey();
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressDotKey();
+        calc3.pressDigitKey(2);
+        calc3.pressEquals();
+        assertEquals("4.4", calc3.readScreen());
+    }
+
 }
 

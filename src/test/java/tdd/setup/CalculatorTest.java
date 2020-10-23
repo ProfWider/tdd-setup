@@ -16,4 +16,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    // 1. neuer grüner Test
+    @Test
+    @DisplayName("should display 0 after pressing clear key")
+    void calculatorCanDoClear() {
+        Calculator test1 = new Calculator();
+        test1.pressDigitKey(4);
+        test1.pressClearKey();
+        test1.pressDigitKey(2);
+        test1.pressClearKey();
+        assertEquals("0", test1.readScreen());
+    }
 }

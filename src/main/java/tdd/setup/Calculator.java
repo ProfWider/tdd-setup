@@ -1,6 +1,5 @@
 package tdd.setup;
 
-// behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
     private String screen = "0";
@@ -8,6 +7,7 @@ public class Calculator {
     private double latestValue;
 
     private String latestOperation = "";
+    private boolean helper = false;
 
     public String readScreen() {
         return screen;
@@ -17,16 +17,31 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
+            helper = false;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if (helper==false) {
+                latestValue = Double.parseDouble(screen);
+                screen = "0";
+                helper=true;
+                screen = screen + digit;
+            }else{
+                screen = screen + digit;
+            }
+
+            // screen = Integer.toString(digit);
+
         }
     }
 
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+        if(!latestOperation.isEmpty() && screen!="0") {
+            screen = "0";
+        }else{
+            screen = "0";
+            latestOperation = "";
+            latestValue = 0.0;
+        }
+
     }
 
     public void pressOperationKey(String operation)  {
@@ -52,4 +67,5 @@ public class Calculator {
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
+
 }

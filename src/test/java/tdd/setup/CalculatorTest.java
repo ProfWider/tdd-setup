@@ -16,4 +16,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after adding two positive numbers")
+    void calculatorCanDoFiveTimesFive() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("25", calc.readScreen());
+    }
 }

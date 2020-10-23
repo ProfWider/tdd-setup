@@ -42,6 +42,15 @@ public class Calculator {
 
     public void pressDotKey() {
         if(!screen.endsWith(".")) screen = screen + ".";
+        if(screen.length()>3){
+            StringBuilder sb = new StringBuilder(screen);
+            sb.deleteCharAt(4);
+            screen = sb.toString();
+            System.out.println(screen);
+            latestValue=Double.parseDouble(screen);
+            System.out.println(latestValue);
+            screen = "0";
+        }
     }
 
     public void pressNegative() {

@@ -31,7 +31,7 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("Test auf Punkt vor Strich Rechnung")
+    @DisplayName("Addiere 3 Zahlen miteinander")
     void testAddingThreeNumbers(){
         Calculator calcTwo = new Calculator();
         calcTwo.pressDigitKey(5);
@@ -53,6 +53,7 @@ class CalculatorTest {
         calcThree.pressDotKey();
         calcThree.pressOperationKey("+");
         calcThree.pressDigitKey(1);
+        calcThree.pressEquals();
         assertEquals("5.1",calcThree.readScreen());
     }
 

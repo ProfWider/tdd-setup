@@ -1,14 +1,21 @@
 package tdd.setup;
 
+
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
     //0 in screen causes faulty display of digits
     private String screen = "";
 
-    private double latestValue;
+    public double latestValue;
 
     private String latestOperation = "";
+
+    BigDecimal a, b;
+
 
     public String readScreen() {
         return screen;
@@ -19,8 +26,13 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if (screen.endsWith(".")) {
+                screen = screen + digit;
+            }
+            else {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 
@@ -43,14 +55,19 @@ public class Calculator {
     }
 
     public void pressEquals() {
+        String convertedDouble = Double.toString(latestValue);
+
+        a = new BigDecimal(convertedDouble);
+        b = new BigDecimal(screen);
+
         var result = switch(latestOperation) {
-            case "+" -> latestValue + Double.parseDouble(screen);
-            case "-" -> latestValue - Double.parseDouble(screen);
-            case "x" -> latestValue * Double.parseDouble(screen);
-            case "/" -> latestValue / Double.parseDouble(screen);
+            case "+" -> a.add(b, MathContext.DECIMAL64);
+            case "-" -> a.subtract(b, MathContext.DECIMAL64);
+            case "x" -> a.multiply(b, MathContext.DECIMAL64);
+            case "/" -> a.divide(b, MathContext.DECIMAL64);
             default -> throw new IllegalArgumentException();
         };
-        screen = Double.toString(result);
+        screen = result.toString();
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }

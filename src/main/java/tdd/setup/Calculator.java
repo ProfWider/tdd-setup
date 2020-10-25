@@ -30,6 +30,7 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+
         latestOperation = operation;
     }
 
@@ -38,6 +39,7 @@ public class Calculator {
     }
 
     public void pressNegative() {
+
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
@@ -62,4 +64,7 @@ public class Calculator {
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
+
+
+
 }

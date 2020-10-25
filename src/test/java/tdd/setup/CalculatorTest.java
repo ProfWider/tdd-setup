@@ -40,4 +40,16 @@ class CalculatorTest {
         assertEquals("15", calc.readScreen());
     }
 
+    //red test
+    @Test
+    @DisplayName("8 x -2 = -16")
+    void calculatorMultiplyingPositiveAndNegative() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(8);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("16", calc.readScreen());
+    }
 }

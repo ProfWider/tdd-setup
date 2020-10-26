@@ -27,6 +27,9 @@ public class Calculator {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+
+        if (screen.endsWith("0")) screen = "";
+
     }
 
     public void pressOperationKey(String operation)  {

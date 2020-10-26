@@ -56,5 +56,18 @@ class CalculatorTest {
         assertEquals("21", calc.readScreen());
     }
 
+    //test case three
+    @Test
+    @DisplayName("should return a result for operations on digits greater 9")
+    void calculatorOperationsOnDigitsGreaterNine() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(16);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(16);
+        calc.pressEquals();
+        assertEquals("256", calc.readScreen());
+    }
+
+
 }
 

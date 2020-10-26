@@ -47,7 +47,19 @@ class CalculatorTest {
     }
 
 
-
+    @Test
+    @DisplayName("calculator can add decimal numbers")
+   void pressEquals(){ Calculator calculator = new Calculator();
+        calculator.pressDigitKey(2);
+        calculator.pressDotKey();
+        calculator.pressDigitKey(2);
+        calculator.pressOperationKey("+");
+        calculator.pressDigitKey(2);
+        calculator.pressDotKey();
+        calculator.pressDigitKey(2);
+        calculator.pressEquals();
+        assertEquals("4.4", calculator.readScreen());
+    }
 }
 
 

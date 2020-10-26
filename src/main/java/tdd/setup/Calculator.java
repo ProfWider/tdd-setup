@@ -5,7 +5,7 @@ public class Calculator {
 
     private String screen = "";
 
-    private double latestValue;
+    private double latestValue ;
 
     private String latestOperation = "";
 
@@ -13,14 +13,18 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
+
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
         }
+            else{
+
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
+
     }
 
     public void pressClearKey() {
@@ -30,10 +34,12 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+
         latestOperation = operation;
     }
 
     public void pressDotKey() {
+
         if(!screen.endsWith(".")) screen = screen + ".";
     }
 

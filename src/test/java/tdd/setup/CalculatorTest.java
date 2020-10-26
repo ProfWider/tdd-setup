@@ -34,12 +34,12 @@ class CalculatorTest {
     @DisplayName("should display result after multiplying two numbers, one of them is negative")
     void calculatorCanDoTwoMultiplyMinusTwo() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
+        calc.pressDigitKey(20);
         calc.pressOperationKey("x");
         calc.pressNegative();
-        calc.pressDigitKey(2);
+        calc.pressDigitKey(20);
         calc.pressEquals();
-        assertEquals("-4", calc.readScreen());
+        assertEquals("-400", calc.readScreen());
     }
 
 

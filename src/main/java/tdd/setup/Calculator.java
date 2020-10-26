@@ -12,14 +12,24 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
+
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+
+            if (screen.charAt(1)=='.') {
+
+                screen = screen + digit;
+            }
+
+                else {
+                    latestValue = Double.parseDouble(screen);
+                    screen = Integer.toString(digit);
+                }
         }
     }
 
@@ -51,5 +61,9 @@ public class Calculator {
         };
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+
+        if(screen.contains("000000000000")) {
+            screen = screen.substring(0,screen.length()-13);
+        }
     }
 }

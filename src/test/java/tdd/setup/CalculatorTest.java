@@ -30,6 +30,17 @@ class CalculatorTest {
         assertEquals("-15", calc.readScreen());
     }
 
+    //test case one
+    @Test
+    @DisplayName("should return a decimal number on display")
+    void calculatorCanDoDecimal() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        // calc.pressEquals();
+        assertEquals("5.3", calc.readScreen());
+    }
 
 }
 

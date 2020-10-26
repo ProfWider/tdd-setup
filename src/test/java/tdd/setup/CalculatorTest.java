@@ -41,4 +41,21 @@ class CalculatorTest {
 
     }
 
+
+    @Test
+    @DisplayName("should display result after multiplication of numbers with 2 digits")
+    void calculatorCanPlusSeventeenWithThirtynine() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(7);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressDigitKey(9);
+        calc.pressEquals();
+        assertEquals("56", calc.readScreen());
+    }
+
+
+
+
 }

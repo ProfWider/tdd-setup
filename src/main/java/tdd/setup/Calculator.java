@@ -9,19 +9,27 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private boolean helper = false;
+
     public String readScreen() {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+        if (digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+        if (latestOperation.isEmpty()) {
+            screen = screen + digit;
+            helper = false;
+        } else if (helper == false) {
+            latestValue = Double.parseDouble(screen);
+            screen = "0";
+            helper = true;
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            screen = screen + digit;
         }
     }
+
 
     public void pressClearKey() {
         screen = "0";

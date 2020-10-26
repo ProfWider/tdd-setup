@@ -14,8 +14,10 @@ public class Calculator {
 
         return screen;
     }
+
+    //bug fix for test case three
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+        if(digit > 99 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;

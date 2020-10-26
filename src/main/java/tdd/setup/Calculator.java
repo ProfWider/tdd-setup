@@ -9,7 +9,12 @@ public class Calculator {
 
     private String latestOperation = "";
 
+
     public String readScreen() {
+        if(screen.startsWith("0"))
+        {
+            screen = screen.substring(1);
+        }
         return screen;
     }
     public void pressDigitKey(int digit) {

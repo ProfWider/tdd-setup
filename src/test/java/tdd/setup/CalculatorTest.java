@@ -41,4 +41,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("60", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after deleting the digit after the operation")
+    void calculatorCanDoClearKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressClearKey();
+        calc.pressDigitKey(4);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
+
 }

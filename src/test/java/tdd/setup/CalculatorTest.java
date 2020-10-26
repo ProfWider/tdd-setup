@@ -42,5 +42,19 @@ class CalculatorTest {
         assertEquals("5.3", calc.readScreen());
     }
 
+    //test case two
+    @Test
+    @DisplayName("do operations on >2 digits")
+    void calculatorMultipleOperations() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(9);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("21", calc.readScreen());
+    }
+
 }
 

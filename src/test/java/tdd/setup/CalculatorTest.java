@@ -29,4 +29,16 @@ class CalculatorTest {
 
 
     }
+    @Test
+    @DisplayName("should display result after adding two two-digit numbers")
+    void calculatorCanMultiplyDecimalNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("60", calc.readScreen());
+    }
 }

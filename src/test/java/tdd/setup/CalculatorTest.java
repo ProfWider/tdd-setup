@@ -43,6 +43,7 @@ class CalculatorTest {
         calc.pressDigitKey(1);
         calc.pressEquals();
         assertEquals("3.6", calc.readScreen());
+
     }
 
 

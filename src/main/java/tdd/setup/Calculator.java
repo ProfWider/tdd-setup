@@ -18,9 +18,18 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
+
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+
+            if (screen.charAt(1)=='.') {
+                screen = screen + digit;
+            }
+
+
+            else {
+                    latestValue = Double.parseDouble(screen);
+                    screen = Integer.toString(digit);
+            }
         }
     }
 

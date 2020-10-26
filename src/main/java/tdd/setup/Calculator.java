@@ -3,7 +3,8 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    //bugfix red test one >> do not initialize screen
+    private String screen = "";
 
     private double latestValue;
 

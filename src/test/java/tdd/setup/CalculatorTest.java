@@ -28,5 +28,17 @@ class CalculatorTest {
         assertEquals("2", calc.readScreen());
     }
 
-}
 
+    @Test
+    @DisplayName("should display result after multiplication")
+    void Read() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(7);
+        calc.readScreen();
+        assertEquals("17", calc.readScreen());
+
+
+    }
+
+}

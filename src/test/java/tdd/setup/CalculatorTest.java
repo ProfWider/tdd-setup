@@ -16,4 +16,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after subtracting one positive number from another")
+    void calculatorCanDoFiveMinusThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("2", calc.readScreen());
+    }
+
 }
+

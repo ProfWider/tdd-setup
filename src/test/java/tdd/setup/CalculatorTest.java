@@ -26,4 +26,13 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("6", calc.readScreen());
     }
+    @Test @DisplayName("macht es den punkt?")
+    void calculatorDotKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(1);
+        assertEquals("3.1", calc.readScreen());
+    }
+
 }

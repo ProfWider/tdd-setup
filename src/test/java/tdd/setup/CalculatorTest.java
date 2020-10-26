@@ -35,4 +35,17 @@ class CalculatorTest {
         assertEquals("3.1", calc.readScreen());
     }
 
+    @Test @DisplayName("funktioniert der clear key?")
+    void calculatorNegativeKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressClearKey();
+        calc.pressDigitKey(2);
+        assertEquals("2",calc.readScreen());
+
+    }
+
+
 }

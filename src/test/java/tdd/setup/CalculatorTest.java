@@ -16,4 +16,20 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    // First green test
+    @Test
+    @DisplayName("should display result after subtract two numbers and then multiply a number")
+    void calculatorMinusAndMultiply() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        System.out.println(calc.readScreen());
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        System.out.println(calc.readScreen());
+        assertEquals("6", calc.readScreen());
+    }
 }

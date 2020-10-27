@@ -9,32 +9,52 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    //Fix2
+    private int initialeEingabe = 0;
+
     public String readScreen() {
         return screen;
     }
-    public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-
-        if(latestOperation.isEmpty()) {
+    //Fix2
+    public void pressDigitKey(int digit)
+    {
+        if (initialeEingabe == 0)
+        {
+            if (latestOperation.isEmpty())
+            {
+                screen = screen + digit;
+            }
+            else
+            {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+                initialeEingabe = 1;
+            }
+        }
+        else
+        {
             screen = screen + digit;
-        } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
         }
     }
 
+
+    //Fix2
     public void pressClearKey() {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+        initialeEingabe = 0;
     }
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
     }
 
+    //Fix2
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        //if(!screen.endsWith(".")) screen = screen + ".";
+        //if(!screen.contains(".")) screen = screen + ".";
+        screen = !screen.contains(".") ? screen = screen + "." : screen;
     }
 
     public void pressNegative() {

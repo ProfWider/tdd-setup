@@ -52,9 +52,15 @@ class CalculatorTest {
         System.out.println(calc.readScreen());
     }
 
-
-
-
-
+    @Test
+    @DisplayName("should display number negative")
+    void calculatorCanDoNegative()
+    {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressNegative();
+        assertEquals("-3", calc.readScreen());
+        System.out.println(calc.readScreen());
+    }
 
 }

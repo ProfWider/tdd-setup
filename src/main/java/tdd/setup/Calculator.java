@@ -17,16 +17,18 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+
+        }else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
         }
+
     }
 
-    public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+    public void pressClearKey(){
+            latestValue = 0.0;
+            screen = "0";
+            latestOperation = "";
     }
 
     public void pressOperationKey(String operation)  {

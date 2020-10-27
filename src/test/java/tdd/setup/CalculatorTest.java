@@ -26,4 +26,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display 6 as result with pressing clear between operations")
+    void calculatorTestOne() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressClearKey();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
 }

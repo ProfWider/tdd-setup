@@ -32,4 +32,19 @@ class CalculatorTest {
         System.out.println(calc.readScreen());
         assertEquals("6", calc.readScreen());
     }
+    // First red test
+    @Test
+    @DisplayName("should be able to display the result of adding two negative numbers")
+    void calculatorCanAddTwoNegativeNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(5);
+        System.out.println(calc.readScreen());
+        calc.pressOperationKey("+");
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        System.out.println(calc.readScreen());
+        assertEquals("-8", calc.readScreen());
+    }
 }

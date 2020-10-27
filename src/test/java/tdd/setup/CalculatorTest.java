@@ -27,4 +27,13 @@ class CalculatorTest {
         calc1.pressEquals();
         assertEquals("2", calc1.readScreen());
     }
+    //first failed test
+    @Test
+    @DisplayName("should display same digit after pressing Equals without an operation")
+    void calculatorCanDoFourEquals() {
+        Calculator calc2 = new Calculator();
+        calc2.pressDigitKey(4);
+        calc2.pressEquals();
+        assertEquals("4", calc2.readScreen());
+    }
 }

@@ -16,4 +16,27 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after multiplying two negative number")
+    void calculatorCanDoNegativeTwoCommaFiveTimesTwo(){
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-5", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display result after pressing clear key")
+    void calculatorCanPressClearKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+
+    }
 }

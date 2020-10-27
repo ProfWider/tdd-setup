@@ -30,6 +30,9 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+        if (latestOperation != "") {
+            pressEquals();
+        }
         latestOperation = operation;
     }
 

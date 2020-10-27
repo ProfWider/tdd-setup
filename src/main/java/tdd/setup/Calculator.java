@@ -30,10 +30,16 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+        String save = operation;
+        if (latestOperation == "") {
+            latestOperation = save;
+        }else{
+            latestValue =pressEquals();
 
-            latestOperation = operation;
-
+            latestOperation =save;
+        }
     }
+
 
     public void pressDotKey() {
         if(!screen.endsWith(".")) screen = screen + ".";
@@ -43,7 +49,7 @@ public class Calculator {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
-    public void pressEquals() {
+    public double pressEquals() {
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
@@ -54,7 +60,7 @@ public class Calculator {
         };
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
-
+        return result;
     }
 
 

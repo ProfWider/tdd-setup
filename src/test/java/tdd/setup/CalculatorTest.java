@@ -49,13 +49,13 @@ class CalculatorTest {
             "one of them with dot(double or float number)")
     void calculatorCanUseDotKey() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(5);
+        calc.pressDigitKey(-5);
         calc.pressDotKey();
         calc.pressDigitKey(5);
         calc.pressOperationKey("-");
         calc.pressDigitKey(1);
         calc.pressEquals();
-        assertEquals("4.5",calc.readScreen());
+        assertEquals("-6.5",calc.readScreen());
     }
 
 

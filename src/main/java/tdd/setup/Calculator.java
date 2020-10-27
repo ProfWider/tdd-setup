@@ -1,4 +1,7 @@
+package tdd.setup;
 
+// behaviour inspired by https://www.online-calculator.com/
+public class Calculator {
 private String screen = "0";
 
 private double latestValue;

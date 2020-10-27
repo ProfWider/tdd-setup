@@ -9,24 +9,43 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private int pck = 0;
+
     public String readScreen() {
         return screen;
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+        if(latestValue != 0 && screen != "0"){
+            if(latestOperation == "x"){
+                screen = Double.toString(Double.parseDouble(screen) * digit);
+                latestOperation = "+";
+            }else {
+                pressEquals();
+                latestValue = digit;
+            }
+        } else if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+
+        }else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
         }
+
     }
 
-    public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+    public void pressClearKey(){
+        if(pck != 0){
+            latestValue = 0.0;
+            screen = "0";
+            latestOperation = "";
+            pck = 0;
+
+        }else{
+            latestValue = 0.0;
+            pck =+1;
+        }
     }
 
     public void pressOperationKey(String operation)  {

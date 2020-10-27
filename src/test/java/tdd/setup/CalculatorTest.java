@@ -16,4 +16,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after adding two positive numbers")
+    void calculatorCanDoTheSquareOfThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("9", calc.readScreen());
+    }
 }

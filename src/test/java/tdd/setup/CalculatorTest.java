@@ -16,6 +16,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
     @Test
     @DisplayName("should display result after subtracting two positive numbers")
     void calculatorCanDoTwoMinusTwo() {
@@ -26,5 +27,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display input after no operation")
+    void calculatorCanDoNoOperation() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("3", calc.readScreen());
+    }
+
 
 }

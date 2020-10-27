@@ -35,13 +35,5 @@ class CalculatorTest {
         assertEquals("-4", calc3.readScreen());
     }
 
-    @Test
-    @DisplayName("decimal number")
-    void CalculatorCanDoDecimal() {
-        Calculator calc4 = new Calculator();
-        calc4.pressDigitKey(5);
-        calc4.pressDotKey();
-        calc4.pressDigitKey(5);
-        assertEquals("5.5", calc4.readScreen());
-    }
+
 }

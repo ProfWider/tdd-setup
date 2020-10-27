@@ -35,6 +35,9 @@ class CalculatorTest {
     void calculatorCanPressClearKey() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(3);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(4);
+        calc.pressEquals();
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
 

@@ -18,8 +18,13 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestValue != 0 && screen != "0"){
+            if(latestOperation == "x"){
+                screen = Double.toString(Double.parseDouble(screen) * digit);
+                latestOperation = "+";
+            }else {
                 pressEquals();
                 latestValue = digit;
+            }
         } else if(latestOperation.isEmpty()) {
             screen = screen + digit;
 

@@ -16,4 +16,27 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    //successful
+    @Test
+    @DisplayName("should display result after multiplying two positive numbers")
+    void calculatorCanDoTwoTimesFour()
+    {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(4);
+        calc.pressEquals();
+        assertEquals("8", calc.readScreen());
+        System.out.println(calc.readScreen());
+    }
+
+
+
+
+
+
+
+
+
 }

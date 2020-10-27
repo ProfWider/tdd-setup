@@ -37,5 +37,17 @@ class CalculatorTest {
         assertEquals("3", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after adding three positive numbers")
+    void calculatorCanDoThreePlusThreePlusThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("9", calc.readScreen());
+    }
 
 }

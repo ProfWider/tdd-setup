@@ -29,4 +29,18 @@ class CalculatorTest {
         assertEquals("0", calc.readScreen());
         System.out.println(calc.readScreen());
     }
+    //First red test
+    @Test
+    @DisplayName("should sum up two double figure digit numbers")
+    void calculatorCanSumDoubleDigitNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(1);
+        calc.pressEquals();
+        assertEquals("24", calc.readScreen());
+        System.out.println(calc.readScreen());
+    }
 }

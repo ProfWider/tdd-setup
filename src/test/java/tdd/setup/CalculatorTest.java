@@ -26,4 +26,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("9", calc.readScreen());
     }
+    @Test
+    @DisplayName("should keep on adding the first number if no second number is added after the plus")
+    void cando() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("-");
+        calc3.pressDigitKey(-2);
+        calc3.pressEquals();
+        assertEquals("4", calc3.readScreen());
+    }
+
 }

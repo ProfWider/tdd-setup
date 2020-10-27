@@ -25,16 +25,19 @@ public class Calculator {
         }
     }
 
-    public void pressClearKey() {
 
+    public void pressClearKey() {
+        if (counter==0 ){
+            screen = "0";
+            counter ++;}
+        else {
             screen = "0";
             latestOperation = "";
             latestValue = 0.0;
-
+            counter = 0;
+        }
     }
-    public void remember(){
 
-    }
     public void pressOperationKey(String operation)  {
         String save = operation;
         if (latestOperation == "") {

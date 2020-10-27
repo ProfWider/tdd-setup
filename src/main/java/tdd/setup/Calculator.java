@@ -14,8 +14,8 @@ public class Calculator {
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-
-        if(latestOperation.isEmpty() || screen.substring(screen.length()-1).equals(".")) {
+//|| screen.substring(screen.length()-1).equals(".")
+        if(latestOperation.isEmpty() ) {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
@@ -30,9 +30,9 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
-         if (!this.latestOperation.isEmpty()) {
-        	pressEquals() ;
-        }
+ //        if (!this.latestOperation.isEmpty()) {
+   //     	pressEquals() ;
+     //   }
         latestOperation = operation;
     }
 

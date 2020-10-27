@@ -1,4 +1,5 @@
 package tdd.setup;
+import java.util.Scanner;
 
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
@@ -9,21 +10,18 @@ public class Calculator {
 
     private String latestOperation = "";
 
-    public String readScreen() {
+    public String readScreen()
+    {
         return screen;
     }
-    public void pressDigitKey(int digit) {
+    public void pressDigitKey(int digit)
+    {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-
-        if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
-        }
     }
 
-    public void pressClearKey() {
+    public void pressClearKey()
+    {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
@@ -31,6 +29,8 @@ public class Calculator {
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        latestValue = Double.parseDouble(screen);
+        screen = "";
     }
 
     public void pressDotKey() {
@@ -40,6 +40,8 @@ public class Calculator {
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
+
+
 
     public void pressEquals() {
         var result = switch(latestOperation) {
@@ -53,3 +55,5 @@ public class Calculator {
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 }
+
+//hallo

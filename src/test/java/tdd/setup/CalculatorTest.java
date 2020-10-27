@@ -36,4 +36,20 @@ class CalculatorTest {
         calc2.pressEquals();
         assertEquals("4", calc2.readScreen());
     }
+    //second failed test
+    @Test
+    @DisplayName("should display result after adding two positive floats")
+    void calculatorCanDoThreePointOnePlusThreePointOne() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(3);
+        calc3.pressDotKey();
+        calc3.pressDigitKey(1);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(3);
+        calc3.pressDotKey();
+        calc3.pressDigitKey(1);
+        calc3.pressEquals();
+        assertEquals("6.2", calc3.readScreen());
+    }
+
 }

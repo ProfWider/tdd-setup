@@ -9,13 +9,18 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private int pck = 0;
+
     public String readScreen() {
         return screen;
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+        if(latestValue != 0 && screen != "0"){
+            pressEquals();
+            latestValue = digit;
+        } else if(latestOperation.isEmpty()) {
             screen = screen + digit;
 
         }else {
@@ -26,9 +31,16 @@ public class Calculator {
     }
 
     public void pressClearKey(){
+        if(pck != 0){
             latestValue = 0.0;
             screen = "0";
             latestOperation = "";
+            pck = 0;
+
+        }else{
+            latestValue = 0.0;
+            pck =+1;
+        }
     }
 
     public void pressOperationKey(String operation)  {

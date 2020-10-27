@@ -43,4 +43,20 @@ class CalculatorTest {
         assertEquals("24", calc.readScreen());
         System.out.println(calc.readScreen());
     }
+    //second red test
+    @Test
+    @DisplayName("should multiply two times in a row ")
+    void calculatorCanMultiplyTwoTimesInaRow() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("54", calc.readScreen());
+        System.out.println(calc.readScreen());
+    }
 }

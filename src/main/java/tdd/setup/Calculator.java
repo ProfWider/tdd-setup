@@ -30,6 +30,7 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
+        if (latestValue != 0.0) pressEquals();
         latestOperation = operation;
         latestValue = Double.parseDouble(screen);
         screen = "0";

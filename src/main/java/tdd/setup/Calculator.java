@@ -16,10 +16,10 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            if (screen.equalsIgnoreCase("0")) screen = Integer.toString(digit);
+            else screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            screen = screen + Integer.toString(digit);
         }
     }
 
@@ -31,6 +31,8 @@ public class Calculator {
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        latestValue = Double.parseDouble(screen);
+        screen = "0";
     }
 
     public void pressDotKey() {

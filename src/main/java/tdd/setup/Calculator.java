@@ -3,7 +3,7 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = ""; // 0 gelöscht
 
     private double latestValue;
 
@@ -13,7 +13,7 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit < 0) throw new IllegalArgumentException();
+       // if(digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;

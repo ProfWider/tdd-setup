@@ -30,11 +30,12 @@ class CalculatorTest {
     @DisplayName("should enable you to use calculate with a negativ number")
     void cando() {
         Calculator calc3 = new Calculator();
+        calc3.pressOperationKey("-");
         calc3.pressDigitKey(2);
         calc3.pressOperationKey("-");
-        calc3.pressDigitKey(-2);
+        calc3.pressDigitKey(2);
         calc3.pressEquals();
-        assertEquals("4", calc3.readScreen());
+        assertEquals("-4", calc3.readScreen()); //CHANGE REQUESTED
     }
     @Test
     @DisplayName("should enable you to calculate multiple numbers")
@@ -47,6 +48,18 @@ class CalculatorTest {
         calc3.pressDigitKey(2);
         calc3.pressEquals();
         assertEquals("6", calc3.readScreen());
+    }
+    @Test
+    @DisplayName("should show that press clear key doesnt clear everything after pressing it once but saves the operation and the lastvalue")
+    void bearbeitung() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressClearKey();
+        calc3.pressEquals();
+        calc3.pressEquals();
+        assertEquals("4", calc3.readScreen()); //CHANGE REQUESTED
     }
 }
 

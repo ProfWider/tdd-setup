@@ -7,13 +7,15 @@ public class Calculator {
 
     private double latestValue;
 
+    private int counter = 0;
+
     private String latestOperation = "";
 
     public String readScreen() {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < -9) throw new IllegalArgumentException();
+        if(digit > 9 || digit < 0) throw new IllegalArgumentException(); //CHANGE REQUESTED
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
@@ -24,11 +26,15 @@ public class Calculator {
     }
 
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
-    }
 
+            screen = "0";
+            latestOperation = "";
+            latestValue = 0.0;
+
+    }
+    public void remember(){
+
+    }
     public void pressOperationKey(String operation)  {
         String save = operation;
         if (latestOperation == "") {
@@ -45,7 +51,12 @@ public class Calculator {
         if(!screen.endsWith(".")) screen = screen + ".";
     }
 
+
+
     public void pressNegative() {
+        if( latestOperation == "-"){
+            latestOperation = "+";
+        }
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
@@ -55,7 +66,6 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
-            case "%" -> latestValue / Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

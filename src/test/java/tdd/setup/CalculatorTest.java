@@ -28,4 +28,14 @@ class CalculatorTest {
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display a decimal number like 2.5 = 2.5 after pressing --> pressEquals()")
+    void calculatorCanShowADecimal() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("2.5", calc.readScreen());
+    }
 }

@@ -40,4 +40,19 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("6", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display 6 after multiplying an addition")
+    void calculatorTestTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("6", calc.readScreen());
+    }
+
+
 }

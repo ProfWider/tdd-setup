@@ -18,8 +18,8 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestValue != 0 && screen != "0"){
-            pressEquals();
-            latestValue = digit;
+                pressEquals();
+                latestValue = digit;
         } else if(latestOperation.isEmpty()) {
             screen = screen + digit;
 

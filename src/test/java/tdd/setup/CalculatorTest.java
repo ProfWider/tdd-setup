@@ -38,4 +38,19 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("2.5", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result correctly after adding two decimal numbers")
+    void calculatorCanAddDecimalNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("5", calc.readScreen());
+    }
 }

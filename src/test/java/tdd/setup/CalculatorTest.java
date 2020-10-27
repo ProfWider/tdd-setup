@@ -16,4 +16,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should clear the screen and show only a zero as default on the screen")
+    void calculatorCanClearTheScreen() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(9);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
 }

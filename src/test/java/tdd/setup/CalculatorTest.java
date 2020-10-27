@@ -17,7 +17,7 @@ class CalculatorTest {
         assertEquals("4", calc.readScreen());
     }
     @Test
-    @DisplayName("should display result after adding two positive numbers")
+    @DisplayName("should display the square of three")
     void calculatorCanDoTheSquareOfThree() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(3);
@@ -27,7 +27,7 @@ class CalculatorTest {
         assertEquals("9", calc.readScreen());
     }
     @Test
-    @DisplayName("should keep on adding the first number if no second number is added after the plus")
+    @DisplayName("should enable you to use calculate with a negativ number")
     void cando() {
         Calculator calc3 = new Calculator();
         calc3.pressDigitKey(2);
@@ -36,5 +36,19 @@ class CalculatorTest {
         calc3.pressEquals();
         assertEquals("4", calc3.readScreen());
     }
-
+    @Test
+    @DisplayName("should enable you to calculate multiple numbers")
+    void mrmeeseek() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressEquals();
+        assertEquals("6", calc3.readScreen());
+    }
 }
+
+
+

@@ -56,6 +56,7 @@ class CalculatorTest {
         calc3.pressDigitKey(2);
         calc3.pressOperationKey("+");
         calc3.pressDigitKey(2);
+        calc3.pressEquals();
         calc3.pressClearKey();
         calc3.pressEquals();
         calc3.pressEquals();

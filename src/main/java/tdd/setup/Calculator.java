@@ -17,9 +17,14 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+        } else if(!screen.contains("."))
+        {
             latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            screen = "0";
+            screen = screen + digit;
+        }
+        else {
+            screen = screen + digit;
         }
     }
 

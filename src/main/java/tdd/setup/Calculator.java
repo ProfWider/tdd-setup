@@ -31,6 +31,9 @@ public class Calculator {
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        if (screen != "0" && latestValue != 0) {
+            pressEquals();
+        }
     }
 
     public void pressDotKey() {

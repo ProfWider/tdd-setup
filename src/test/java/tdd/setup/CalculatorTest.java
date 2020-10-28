@@ -54,7 +54,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("56", calc.readScreen());
     }
-
+    @Test
+    @DisplayName("should display result after multiplication")
+    void ReadNegative() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(7);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("-22", calc.readScreen());
+    }
 
 
 

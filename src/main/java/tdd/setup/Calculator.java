@@ -30,7 +30,14 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
-        latestOperation = operation;
+        if (operation != "%") {
+            latestOperation = operation;
+        }
+        else {
+            var result = Double.parseDouble(screen) / 100.0;
+            screen = Double.toString(result);
+            if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        }
     }
 
     public void pressDotKey() {

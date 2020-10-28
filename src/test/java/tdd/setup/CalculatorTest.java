@@ -16,4 +16,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display zero after adding")
+    void calculatorCanDoTwoPlusTwoNewWithClearFunction() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
 }
+// andere Fälle testen

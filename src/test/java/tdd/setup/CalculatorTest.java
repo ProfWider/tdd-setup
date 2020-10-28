@@ -26,6 +26,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after changing a Number to negative")
+    void calculatorCanDoNegative() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(2);
+        assertEquals("-2", calc.readScreen());
+    }
 
 
 

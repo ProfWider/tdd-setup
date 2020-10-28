@@ -16,4 +16,19 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+
+    @Test
+    @DisplayName("should display result after dividing two positive numbers")
+    void calculatorCanDoEightDividedByFour() {
+        Calculator c1 = new Calculator();
+        c1.pressDigitKey(8);
+        c1.pressOperationKey("/");
+        c1.pressDigitKey(4);
+        c1.pressEquals();
+        assertEquals("2", c1.readScreen());
+    }
+
+
+
 }

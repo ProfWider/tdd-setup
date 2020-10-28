@@ -3,7 +3,7 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = "";
 
     private double latestValue;
 
@@ -31,6 +31,9 @@ public class Calculator {
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        if (screen != "0" && latestValue != 0) {
+            pressEquals();
+        }
     }
 
     public void pressDotKey() {

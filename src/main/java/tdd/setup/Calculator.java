@@ -17,9 +17,12 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+        } else if (latestValue == 0.0){
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
+        }
+        else{
+            screen = screen + digit;
         }
     }
 
@@ -58,5 +61,7 @@ public class Calculator {
         };
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        if(screen.contains(".0E-")) screen = screen.replace(".0E","e");
+        if(screen.contains(".0E")) screen = screen.replace(".0E","e+");
     }
 }

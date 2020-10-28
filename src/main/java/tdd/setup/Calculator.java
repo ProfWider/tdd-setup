@@ -7,18 +7,29 @@ public class Calculator {
 
     private double latestValue;
 
+    private String calculationOperation;
+
     private String latestOperation = "";
 
     public String readScreen() {
         return screen;
     }
     public void pressDigitKey(int digit) {
+
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+
+        if (screen == "0") {
+
+            screen = "";
+        }
+
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
+            calculationOperation = latestOperation;
+            latestOperation = "";
             screen = Integer.toString(digit);
         }
     }
@@ -42,7 +53,7 @@ public class Calculator {
     }
 
     public void pressEquals() {
-        var result = switch(latestOperation) {
+        var result = switch(calculationOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);

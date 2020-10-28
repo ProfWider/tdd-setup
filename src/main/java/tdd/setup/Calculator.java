@@ -9,6 +9,7 @@ public class Calculator {
 
     private String latestOperation = "";
 
+
     public String readScreen() {
         return screen;
     }
@@ -31,6 +32,7 @@ public class Calculator {
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+
     }
 
     public void pressDotKey() {
@@ -40,6 +42,8 @@ public class Calculator {
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
+
+   // public void pressTwoOperationKeys
 
     public void pressEquals() {
         var result = switch(latestOperation) {

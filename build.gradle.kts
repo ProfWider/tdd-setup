@@ -46,6 +46,10 @@ dependencies {
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
+
+    // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine
+    testImplementation("org.junit.platform:junit-platform-engine:1.7.0")
+
 }
 
 application {

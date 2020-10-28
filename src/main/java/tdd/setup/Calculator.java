@@ -7,6 +7,8 @@ public class Calculator {
 
     private double latestValue;
 
+    private String calculationOperation;
+
     private String latestOperation = "";
 
     public String readScreen() {
@@ -20,6 +22,8 @@ public class Calculator {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
+            calculationOperation = latestOperation;
+            latestOperation = "";
             screen = Integer.toString(digit);
         }
     }
@@ -43,7 +47,7 @@ public class Calculator {
     }
 
     public void pressEquals() {
-        var result = switch(latestOperation) {
+        var result = switch(calculationOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);

@@ -16,4 +16,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiply one positive and one negative number")
+    void calculatorCanDoMultiplyTwo() {
+        Calculator calc1 = new Calculator();
+        calc1.pressDigitKey(2);
+        calc1.pressNegative();
+        calc1.pressDigitKey(5);
+        calc1.pressOperationKey("x");
+        calc1.pressDigitKey(2);
+        calc1.pressEquals();
+        assertEquals("-50", calc1.readScreen());
+    }
+
 }

@@ -35,6 +35,17 @@ class CalculatorTest {
         assertEquals("-2", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after multiplying two positive two digit numbers")
+    void calculatorCanMultiplyTwoTwoDigitNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(20);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(25);
+        calc.pressEquals();
+        assertEquals("500", calc.readScreen());
+    }
+
 
 
 }

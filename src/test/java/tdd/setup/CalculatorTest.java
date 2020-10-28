@@ -25,4 +25,12 @@ class CalculatorTest {
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after negative")
+    void pressNegative() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(4);
+        calc.pressNegative();
+        assertEquals("-4", calc.readScreen());
+    }
 }

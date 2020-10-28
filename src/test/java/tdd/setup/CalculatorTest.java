@@ -17,3 +17,15 @@ class CalculatorTest {
         assertEquals("4", calc.readScreen());
     }
 }
+class CalculatorTest2 {
+    @Test
+    @DisplayName("should display result after suctracting two positive numbers")
+    void calculatorCanDoThreeMinusTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("1", calc.readScreen());
+    }
+}

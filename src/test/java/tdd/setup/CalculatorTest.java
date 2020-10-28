@@ -16,4 +16,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+
+    @Test
+    @DisplayName("should display result after subtracting two positive numbers and clear it")
+    void calculatorCanClear() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(1);
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
+
 }

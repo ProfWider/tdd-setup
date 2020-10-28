@@ -19,7 +19,7 @@ public class Calculator {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            screen = Integer.toString(digit); //Hier muss doch Double.toString(digit) stehen?
         }
     }
 
@@ -52,4 +52,5 @@ public class Calculator {
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
+
 }

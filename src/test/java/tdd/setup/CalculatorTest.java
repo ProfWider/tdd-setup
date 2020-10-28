@@ -30,14 +30,16 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display a correct number after press dotkey several time")
-    void calculatorCanUseSeveralDots() {
+    @DisplayName("should display a correct number with a dot") //Code von 2.2.8 auf 1.1+1.1 und davon auf 1.1
+    void calculatorCanAdditionWithTwoDots() {
         Calculator c2 = new Calculator();
-        c2.pressDigitKey(2);
+        c2.pressDigitKey(1);
         c2.pressDotKey();
-        c2.pressDigitKey(2);
+        c2.pressDigitKey(1);
+       /* c2.pressOperationKey("+");
+        c2.pressDigitKey(1);
         c2.pressDotKey();
-        c2.pressDigitKey(8);
-        assertEquals("2.28", c2.readScreen());
+        c2.pressDigitKey(1); */
+        assertEquals("1.1", c2.readScreen());
     }
 }

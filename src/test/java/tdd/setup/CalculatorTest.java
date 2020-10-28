@@ -16,4 +16,57 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after subtracting one positive number from another")
+    void calculatorCanDoFiveMinusThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("2", calc.readScreen());
+    }
+
+
+    @Test
+    @DisplayName("should display result after multiplication")
+    void Read() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(7);
+        calc.readScreen();
+        assertEquals("17", calc.readScreen());
+
+
+    }
+
+
+    @Test
+    @DisplayName("should display result after multiplication of numbers with 2 digits")
+    void calculatorCanPlusSeventeenWithThirtynine() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(7);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressDigitKey(9);
+        calc.pressEquals();
+        assertEquals("56", calc.readScreen());
+    }
+    @Test
+    @DisplayName("should display result after multiplication")
+    void ReadNegative() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(7);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("-22", calc.readScreen());
+    }
+
+
+
 }

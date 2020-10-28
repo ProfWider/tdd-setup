@@ -17,9 +17,14 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+        } else if(!screen.contains("."))
+        {
             latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            screen = "0";
+            screen = screen + digit;
+        }
+        else {
+            screen = screen + digit;
         }
     }
 
@@ -47,6 +52,7 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            case "" -> latestValue + Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

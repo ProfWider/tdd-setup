@@ -45,5 +45,20 @@ class CalculatorTest {
         assertEquals("5.5", calc4.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after adding two positive decimal numbers")
+    void CalculatorCanDoPlusDecimal(){
+        Calculator calc5 = new Calculator();
+        calc5.pressDigitKey(2);
+        calc5.pressDotKey();
+        calc5.pressDigitKey(2);
+        calc5.pressOperationKey("+");
+        calc5.pressDigitKey(2);
+        calc5.pressDotKey();
+        calc5.pressDigitKey(2);
+        calc5.pressEquals();
+        assertEquals("4.4", calc5.readScreen());
+    }
+
 
 }

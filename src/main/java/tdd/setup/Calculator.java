@@ -34,7 +34,13 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
-        latestOperation = operation;
+        if (latestOperation == "") {
+            latestOperation = operation;
+        }
+        else {
+            pressEquals();
+            latestOperation = operation;
+        }
     }
 
     public void pressDotKey() {

@@ -19,7 +19,7 @@ class CalculatorTest {
 
     @Test
     @DisplayName("should display result after subtracting two positive numbers")
-    void calculatorCanMultiply() {
+    void calculatorCanSubtract() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(5);
         calc.pressOperationKey("-");
@@ -37,5 +37,19 @@ class CalculatorTest {
         calc.pressDigitKey(5);
         assertEquals("2.5", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying two numbers and add a third number")
+    void calculatorCanMultiply() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(6);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("20", calc.readScreen());
+    }
+
 
 }

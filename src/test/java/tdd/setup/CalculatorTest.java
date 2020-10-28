@@ -16,4 +16,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display results after 5 - 4")
+    void calculatorCanDo5Minus4(){
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(4);
+        calc.pressEquals();
+        assertEquals("1", calc.readScreen());
+    }
+
+
 }

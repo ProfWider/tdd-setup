@@ -33,4 +33,16 @@ class CalculatorTest {
         calc.pressNegative();
         assertEquals("-4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after using operation -")
+    void pressDotKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(4);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(4);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(4);
+        calc.pressEquals();
+        assertEquals("-4", calc.readScreen());
+    }
 }

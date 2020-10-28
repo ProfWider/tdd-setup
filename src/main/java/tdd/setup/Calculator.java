@@ -18,6 +18,7 @@ public class Calculator {
 
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
+
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {

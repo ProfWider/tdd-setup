@@ -42,4 +42,15 @@ class CalculatorTest {
         assertEquals("300", calc.readScreen());
 
     }
+
+    @Test
+    @DisplayName("should display decimal number without 0 in the beginning")
+    void calculatorCanDivide() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        assertEquals("2.5", calc.readScreen());
+
+    }
 }

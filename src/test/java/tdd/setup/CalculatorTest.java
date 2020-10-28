@@ -16,4 +16,53 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display the square of three")
+    void calculatorCanDoTheSquareOfThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("9", calc.readScreen());
+    }
+    @Test
+    @DisplayName("should enable you to use calculate with a negativ number")
+    void cando() {
+        Calculator calc3 = new Calculator();
+        calc3.pressOperationKey("-");
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("-");
+        calc3.pressDigitKey(2);
+        calc3.pressEquals();
+        assertEquals("-4", calc3.readScreen()); //CHANGE REQUESTED
+    }
+    @Test
+    @DisplayName("should enable you to calculate multiple numbers")
+    void mrmeeseek() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressEquals();
+        assertEquals("6", calc3.readScreen());
+    }
+    @Test
+    @DisplayName("should show that press clear key doesnt clear everything after pressing it once but saves the operation and the lastvalue")
+    void bearbeitung() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(2);
+        calc3.pressOperationKey("+");
+        calc3.pressDigitKey(2);
+        calc3.pressEquals();
+        calc3.pressClearKey();
+        calc3.pressEquals();
+        calc3.pressEquals();
+        assertEquals("4", calc3.readScreen()); //CHANGE REQUESTED
+    }
 }
+
+
+

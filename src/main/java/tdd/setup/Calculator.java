@@ -15,8 +15,13 @@ public class Calculator {
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
+        // Bugfix 4.Test
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            if(screen != "0") {
+                screen = screen + digit;
+            } else {
+                screen = Integer.toString(digit);
+            }
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
@@ -47,6 +52,9 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            // Bugfix 3. Test
+            case "1/x" -> 1 / Double.parseDouble(screen);
+
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

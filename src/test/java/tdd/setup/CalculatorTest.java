@@ -16,4 +16,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    //test one
+    @Test
+    @DisplayName("should display result after multiplying a positive with a negative number")
+    void calculatorCanDoFiveMultiplyingThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("-15", calc.readScreen());
+    }
 }

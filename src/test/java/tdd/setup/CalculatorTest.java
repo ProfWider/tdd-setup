@@ -29,3 +29,12 @@ class CalculatorTest2 {
         assertEquals("1", calc.readScreen());
     }
 }
+class CalculatorTest3 {
+    @Test
+    @DisplayName("should display result after pressDigitKey")
+    void calculatorCanMulti() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        assertEquals("2", calc.readScreen());
+    }
+}

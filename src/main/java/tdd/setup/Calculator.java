@@ -18,6 +18,11 @@ public class Calculator {
 
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
+        if (screen == "0") {
+
+            screen = "";
+        }
+
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;

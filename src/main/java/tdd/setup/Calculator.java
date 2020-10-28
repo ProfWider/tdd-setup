@@ -12,11 +12,12 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            screen = (screen == "0") ? Integer.toString(digit) : screen + Integer.toString(digit);
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
@@ -34,10 +35,13 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+
+        if (!screen.endsWith(".")) screen = screen + ".";
+
     }
 
     public void pressNegative() {
+
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
@@ -50,6 +54,18 @@ public class Calculator {
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);
-        if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        if(screen.endsWith(".0"))
+            screen = screen.substring(0,screen.length()-2);
+    }
+
+    // Getter und Setter
+    public double getLatestValue() {
+        return latestValue;
+    }
+
+    public String getLatestOperation() {
+        return latestOperation;
     }
 }
+
+

@@ -55,4 +55,15 @@ class CalculatorTest {
         assertEquals("0.25", test3.readScreen());
     }
 
+    // neuer roter Test
+    @Test
+    @DisplayName("should display number without 0 at the beginning")
+    void calculatorCanShowNumberWithoutZero() {
+        Calculator test4 = new Calculator();
+        test4.pressDigitKey(1);
+        test4.pressDotKey();
+        test4.pressDigitKey(2);
+        assertEquals("1.2", test4.readScreen());
+    }
+
 }

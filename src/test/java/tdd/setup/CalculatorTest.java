@@ -29,4 +29,16 @@ class CalculatorTest {
         assertEquals("0", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after adding a negative dot number")
+    void calculatorCanNegative() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        assertEquals("-2.5", calc.readScreen());
+    }
+
+
 }

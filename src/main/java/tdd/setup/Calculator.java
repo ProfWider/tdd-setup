@@ -17,9 +17,12 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+        } else if (latestValue == 0.0){
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
+        }
+        else{
+            screen = screen + digit;
         }
     }
 
@@ -30,7 +33,14 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
-        latestOperation = operation;
+        if (operation != "%") {
+            latestOperation = operation;
+        }
+        else {
+            var result = Double.parseDouble(screen) / 100.0;
+            screen = Double.toString(result);
+            if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        }
     }
 
     public void pressDotKey() {
@@ -51,5 +61,7 @@ public class Calculator {
         };
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        if(screen.contains(".0E-")) screen = screen.replace(".0E","e");
+        if(screen.contains(".0E")) screen = screen.replace(".0E","e+");
     }
 }

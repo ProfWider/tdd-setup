@@ -29,4 +29,17 @@ class CalculatorTest {
 
     }
 
+    @Test
+    @DisplayName("should display result after multiplying double digit numbers")
+    void calculatorCanDoTenTimesTen() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("300", calc.readScreen());
+
+    }
 }

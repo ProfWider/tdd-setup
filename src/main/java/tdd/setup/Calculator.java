@@ -1,5 +1,7 @@
 package tdd.setup;
 
+import java.math.BigDecimal;
+
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
@@ -12,14 +14,19 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
-    public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+    public void pressDigitKey(int digit) {
+        if (digit > 9 || digit < 0) throw new IllegalArgumentException();
+
+        if (latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if (screen.endsWith(".")) {
+                screen = screen + digit;
+            } else {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 
@@ -29,12 +36,12 @@ public class Calculator {
         latestValue = 0.0;
     }
 
-    public void pressOperationKey(String operation)  {
+    public void pressOperationKey(String operation) {
         latestOperation = operation;
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if (!screen.endsWith(".")) screen = screen + ".";
     }
 
     public void pressNegative() {
@@ -42,15 +49,18 @@ public class Calculator {
     }
 
     public void pressEquals() {
-        var result = switch(latestOperation) {
-            case "+" -> latestValue + Double.parseDouble(screen);
+        BigDecimal screenToBigDecimal = new BigDecimal(screen);
+        BigDecimal latestValueToBigDecimal = new BigDecimal(latestValue);
+
+        var result = switch (latestOperation) {
+            case "+" -> latestValueToBigDecimal.add(screenToBigDecimal);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
-            case ""  -> Double.parseDouble(screen);
+            case "" -> Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
-        screen = Double.toString(result);
-        if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        screen = String.valueOf(result);
+        if (screen.endsWith(".0")) screen = screen.substring(0, screen.length() - 2);
     }
 }

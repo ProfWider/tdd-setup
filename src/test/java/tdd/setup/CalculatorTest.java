@@ -16,4 +16,41 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    //test one
+    @Test
+    @DisplayName("should display result after multiplying a positive with a negative number")
+    void calculatorCanDoFiveMultiplyingThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("-15", calc.readScreen());
+    }
+
+    //test case two
+    @Test
+    @DisplayName("should return a result for operations on digits greater 9")
+    void calculatorOperationsOnDigitsGreaterNine() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(16);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(16);
+        calc.pressEquals();
+        assertEquals("256", calc.readScreen());
+    }
+
+    //test case three
+    @Test
+    @DisplayName("should return a decimal number on display")
+    void calculatorCanDoDecimal() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        // calc.pressEquals();
+        assertEquals("5.3", calc.readScreen());
+    }
 }

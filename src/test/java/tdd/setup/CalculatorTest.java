@@ -50,4 +50,17 @@ class CalculatorTest {
         assertEquals("9", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result with numbers leading with a dot")
+    void calculatorCanDoFirstDigitDot() {
+        Calculator calc = new Calculator();
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("+");
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("1", calc.readScreen());
+    }
+
 }

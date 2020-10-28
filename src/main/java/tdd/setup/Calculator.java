@@ -17,7 +17,7 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = Integer.toString(digit);
+            screen = (screen == "0") ? Integer.toString(digit) : screen + Integer.toString(digit);
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
@@ -67,3 +67,5 @@ public class Calculator {
         return latestOperation;
     }
 }
+
+

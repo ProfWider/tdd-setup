@@ -48,7 +48,8 @@ class CalculatorTest {
         calc.pressDigitKey(5);
         calc.pressDotKey();
         calc.pressDigitKey(2);
-        assertEquals(5.2, calc.readScreen());
-            }
+        assertEquals("5.2", calc.readScreen());
+    }
 
 }
+

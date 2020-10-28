@@ -40,5 +40,19 @@ class CalculatorTest {
         assertEquals("-2.5", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result the Percent of a double")
+    void calculatorCanDoPercentOfDouble() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(8);
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("%");
+        calc.pressEquals();
+        assertEquals("0.852", calc.readScreen());
+    }
+
+
 
 }

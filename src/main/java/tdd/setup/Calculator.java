@@ -17,9 +17,11 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
+
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
+
         }
     }
 

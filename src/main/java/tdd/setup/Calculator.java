@@ -13,13 +13,17 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+        if (digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+        if (latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if (screen.endsWith(".")) {
+                screen = screen + digit;
+            } else {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 

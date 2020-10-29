@@ -36,4 +36,15 @@ class CalculatorTest {
         calc.pressDigitKey(3);
         assertEquals("323",calc.readScreen());
     }
+
+    @Test
+    @DisplayName("Division durch null" )
+    void cantDivideByZero(){
+        Calculator calc=new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(0);
+        calc.pressEquals();
+        assertEquals("Error", calc.readScreen());
+    }
 }

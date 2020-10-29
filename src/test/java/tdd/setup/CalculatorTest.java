@@ -21,11 +21,11 @@ class CalculatorTest {
     @DisplayName("should display result after multiplying two numbers")
     void calculatorIsAbleToMultiply() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(4);
+        calc.pressDigitKey(5);
         calc.pressOperationKey("x");
-        calc.pressDigitKey(4);
+        calc.pressDigitKey(5);
         calc.pressEquals();
-        assertEquals("16", calc.readScreen());
+        assertEquals("25", calc.readScreen());
     }
     // First red test
     @Test

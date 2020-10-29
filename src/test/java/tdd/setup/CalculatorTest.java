@@ -37,7 +37,7 @@ class CalculatorTest {
         calc2.pressDotKey();
         calc2.pressDigitKey(9);
         calc2.pressDigitKey(9);
-        calc2.pressEquals();
+
         assertEquals("1.99", calc2.readScreen());
     }
 }

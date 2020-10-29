@@ -26,4 +26,14 @@ class CalculatorTest {
         calc.pressDigitKey(2);
         calc.pressEquals();
         assertEquals("0", calc.readScreen());
+    }
+    @Test
+    // neuer roter Test
+    void calculatorPercentage() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(0);
+        calc.pressOperationKey("%");
+        assertEquals("0.5", calc.readScreen());
+    }
 }

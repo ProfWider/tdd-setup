@@ -13,13 +13,17 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+        if (digit > 9 || digit < 0) throw new IllegalArgumentException();
+        if (screen.equals("0")) {
+            screen = String.valueOf(digit);
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if (latestOperation.isEmpty()) {
+                screen = screen + digit;
+            } else {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 
@@ -29,12 +33,29 @@ public class Calculator {
         latestValue = 0.0;
     }
 
-    public void pressOperationKey(String operation)  {
+    public void pressOperationKey(String operation) {
+        if(!latestOperation.isEmpty()){
+            latestValue = switch (latestOperation) {
+                case "+" -> latestValue + Double.parseDouble(screen);
+                case "-" -> latestValue - Double.parseDouble(screen);
+                case "x" -> latestValue * Double.parseDouble(screen);
+                case "/" -> latestValue / Double.parseDouble(screen);
+                default -> throw new IllegalArgumentException();
+            };
+            screen = Double.toString(latestValue);
+            if (screen.endsWith(".0")) screen = screen.substring(0, screen.length() - 2);
+        }else{
+            latestValue = Double.parseDouble(screen);
+        }
+
         latestOperation = operation;
+
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+
+        if(!screen.contains(".")) screen = screen  +".";
+
     }
 
     public void pressNegative() {

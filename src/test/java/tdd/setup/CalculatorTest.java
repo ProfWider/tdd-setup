@@ -28,4 +28,14 @@ class CalculatorTest {
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should move decimal point two spaces forward")
+    void calculatorCanDecimalizePercentages(){
+        calc.pressDigitKey(8);
+        calc.pressDigitKey(9);
+        calc.pressDigitKey(8);
+        calc.pressOperationKey("%");
+        assertEquals("8.98", calc.readScreen());
+    }
 }

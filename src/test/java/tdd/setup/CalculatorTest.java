@@ -26,4 +26,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0", calc.readScreen());
     }
+    @Test
+    @DisplayName("mein test")
+    void calculatorCanDoEightyPlusTwenty() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(8);
+        calc.pressDigitKey(0);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressEquals();
+        assertEquals("100", calc.readScreen());
+    }
+
 }

@@ -40,4 +40,15 @@ class CalculatorTest {
 
         assertEquals("1.99", calc2.readScreen());
     }
+    // second Red Test
+    @Test
+    @DisplayName("Should calculate the square root")
+    void CalculatorCanDoSquareroot() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(5);
+        calc3.pressOperationKey("sqrt");
+        calc3.pressEquals();
+
+        assertEquals("2.23606797749979", calc3.readScreen());
+    }
 }

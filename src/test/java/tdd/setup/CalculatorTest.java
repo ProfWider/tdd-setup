@@ -18,19 +18,14 @@ class CalculatorTest {
     }
     // First green test
     @Test
-    @DisplayName("should display result after subtract two numbers and then multiply a number")
-    void calculatorMinusAndMultiply() {
+    @DisplayName("should display result after multiplying two numbers")
+    void calculatorIsAbleToMultiply() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(5);
-        calc.pressOperationKey("-");
-        calc.pressDigitKey(3);
-        calc.pressEquals();
-        System.out.println(calc.readScreen());
+        calc.pressDigitKey(4);
         calc.pressOperationKey("x");
-        calc.pressDigitKey(3);
+        calc.pressDigitKey(4);
         calc.pressEquals();
-        System.out.println(calc.readScreen());
-        assertEquals("6", calc.readScreen());
+        assertEquals("16", calc.readScreen());
     }
     // First red test
     @Test

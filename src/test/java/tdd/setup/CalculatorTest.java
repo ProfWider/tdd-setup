@@ -27,4 +27,13 @@ class CalculatorTest {
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
+    @Test
+    @DisplayName("New Button for Fractional")
+    void calculatorFractional() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("1/x");
+        calc.pressEquals();
+        assertEquals("0.3333333333333333", calc.readScreen());
+    }
 }

@@ -61,7 +61,7 @@ public class Calculator {
      * .contains(".) fix to ignore the input of multiple dots in one number
      */
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if(!screen.contains(".")) screen = screen + ".";
     }   // Wenn Screen nicht mit . endet mach nen Punkt rein
         // Wenn man Zahlen zwischen die Punkte schreibt kann man mehrere Punkte in eine Zahl machen
 

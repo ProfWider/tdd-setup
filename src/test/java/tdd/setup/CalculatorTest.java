@@ -39,5 +39,15 @@ class CalculatorTest {
         assertEquals("0.1", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after pressing a negative number")
+    void calculatorCanDoNegative() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(5);
+        assertEquals("-5", calc.readScreen());
+    }
+
+
 
 }

@@ -17,7 +17,8 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        } else {
+        }
+        else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
         }
@@ -34,7 +35,7 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if(!screen.contains(".")) screen = screen + ".";
     }
 
     public void pressNegative() {

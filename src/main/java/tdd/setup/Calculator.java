@@ -12,11 +12,17 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            if (screen == "0") {
+                screen = Integer.toString(digit);
+            }
+            else {
+                screen = screen + digit;
+            }
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);

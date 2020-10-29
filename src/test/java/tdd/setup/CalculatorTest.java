@@ -16,4 +16,42 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after pressing clear key")
+    void calculatorCanDisplayZeroResult() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display result after multiplying two decimal numbers")
+    void calculatorCanDoZeroCommaTwoTimesZeroCommaThree() {
+        Calculator calc = new Calculator();
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("x");
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("0.06", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("should display result after multiplying a negative button with a positive number")
+    void calculatorCanDoNegativeButtonTimesThree() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("0", calc.readScreen());
+    }
 }
+
+

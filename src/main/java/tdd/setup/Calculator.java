@@ -19,7 +19,11 @@ public class Calculator {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if(!screen.contains(".")){
+                screen = Integer.toString(digit);
+            } else {
+                screen = "0" + "." + digit;
+            }
         }
     }
 
@@ -34,11 +38,14 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if(!screen.contains(".")) screen = screen + ".";
     }
 
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        if (screen.equals("-" + "0")) {
+            screen = "0";
+        }
     }
 
     public void pressEquals() {

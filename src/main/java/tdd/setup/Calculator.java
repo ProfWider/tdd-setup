@@ -13,13 +13,17 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+        if (digit > 9 || digit < 0) throw new IllegalArgumentException();
+        if (screen.equals("0")) {
+            screen = String.valueOf(digit);
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            if (latestOperation.isEmpty()) {
+                screen = screen + digit;
+            } else {
+                latestValue = Double.parseDouble(screen);
+                screen = Integer.toString(digit);
+            }
         }
     }
 
@@ -34,7 +38,9 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+
+        if(!screen.contains(".")) screen = screen  +".";
+
     }
 
     public void pressNegative() {

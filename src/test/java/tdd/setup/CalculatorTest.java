@@ -16,4 +16,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+
+    @Test
+    void calculatorCanShowNegativeValues() {
+        Calculator calc= new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressNegative();
+        assertEquals("-02", calc.readScreen());
+
+    }
 }

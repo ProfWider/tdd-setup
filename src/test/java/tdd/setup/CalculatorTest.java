@@ -29,4 +29,15 @@ class CalculatorTest {
         assertEquals("0", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("should display result after pressing a dezimal number")
+    void calculatorCanDoDotKey() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(0);
+        calc.pressDotKey();
+        calc.pressDigitKey(1);
+        assertEquals("0.1", calc.readScreen());
+    }
+
+
 }

@@ -27,4 +27,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("10", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should throw exception, when dividing by zero")
+    void calculatorShouldThrowZeroDivisionException() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("/");
+        assertThrows(IllegalArgumentException.class, () -> {calc.pressDigitKey(0);});
+    }
+
 }

@@ -27,4 +27,19 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("12", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("Test: should display result after double using pressNegative")
+    void calculatorUsesMinusCorrectly() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        calc.pressNegative();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(4);
+        calc.pressNegative();
+        calc.pressEquals();
+        assertEquals("20", calc.readScreen());
+
+    }
 }

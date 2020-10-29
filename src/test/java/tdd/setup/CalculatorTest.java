@@ -16,4 +16,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying two positive numbers")
+    void calculatorMultiplication() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("10", calc.readScreen());
+    }
 }

@@ -41,4 +41,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("17.6", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying integer numbers and multi-digit")
+    void calculatorCanDoEightTimesTwentyTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(8);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-176", calc.readScreen());
+    }
 }

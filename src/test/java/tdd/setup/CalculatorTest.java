@@ -55,6 +55,24 @@ class CalculatorTest {
     }
 
 
+    /**
+     * 2. Roter Test
+     * press Dot Key Multiple times
+     * Online Calculator ignores multiple dot inputs
+     */
+    @Test
+    @DisplayName("Calculator ignores input of multiple dots")
+    void calculatorIgnoresMultipleDotsInOneNumber () {
+        Calculator calc = new Calculator();
+        calc.pressDotKey();
+        calc.pressDigitKey(8);
+        calc.pressDotKey();
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        assertEquals("0.85", calc.readScreen());
+    }
+
+
 
 
 

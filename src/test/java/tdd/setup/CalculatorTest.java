@@ -54,4 +54,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("-176", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after one divided with integer")
+    void calculatorCanDoOneFourth() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(4);
+        calc.pressOperationKey("1/x");
+        calc.pressEquals();
+        assertEquals("0.25", calc.readScreen());
+    }
 }

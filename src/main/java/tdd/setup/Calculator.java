@@ -16,7 +16,10 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            if (screen == "0")
+                screen = Integer.toString(digit);
+            else screen = screen + digit;
+
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);

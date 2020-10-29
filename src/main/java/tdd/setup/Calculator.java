@@ -13,6 +13,10 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
+        
+        //Bugfix zum 2.Test
+        if(digit != 0 && screen.startsWith("0")) screen = "";
+        
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {

@@ -15,6 +15,10 @@ public class Calculator {
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
+        if (digit == 0 && latestOperation.equals("/")) {
+            throw new IllegalArgumentException("divide by zero");
+        }
+
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {

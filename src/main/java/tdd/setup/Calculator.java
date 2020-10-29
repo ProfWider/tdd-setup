@@ -30,7 +30,15 @@ public class Calculator {
     }
 
     public void pressOperationKey(String operation)  {
-        latestOperation = operation;
+        //Bugfix zum 1.Test
+        if(operation != "%") {
+            latestOperation = operation;
+        }
+        else { var result = Double.parseDouble(screen) / 100;
+            screen = Double.toString(result);
+            if(screen.endsWith(".0"))
+                screen = screen.substring(0, screen.length()-1);
+        }
     }
 
     public void pressDotKey() {

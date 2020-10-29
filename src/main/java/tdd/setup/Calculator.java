@@ -9,10 +9,13 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private boolean clearScreen = false;
+
 
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
@@ -28,10 +31,12 @@ public class Calculator {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+        clearScreen = false;
     }
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        clearScreen = true;
 
     }
 
@@ -51,6 +56,7 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

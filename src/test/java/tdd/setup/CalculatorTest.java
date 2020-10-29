@@ -38,4 +38,14 @@ class CalculatorTest {
         calc.pressOperationKey("%");
         assertEquals("8.98", calc.readScreen());
     }
+
+    @Test
+    @DisplayName ("if the negative key is pressed before the input of a number, the number should turn negative")
+    void calculatorCanDisplayNegativeNumbers () {
+        calc.pressClearKey();
+        calc.pressNegative();
+        calc.pressDigitKey(8);
+        calc.pressDigitKey(8);
+        assertEquals("-88", calc.readScreen());
+    }
 }

@@ -38,7 +38,9 @@ public class Calculator {
     }
 
     public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        screen = screen.startsWith("-") ? screen.substring(1) : "-";
+
+
     }
 
     public void pressEquals() {

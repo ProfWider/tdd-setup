@@ -16,15 +16,21 @@ public class Calculator {
         return screen;
     }
 
-    public void pressDigitKey(int digit) {
+   public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
-            screen = screen + digit;
-        } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
-        }
+       //new code, added new variable clear screen, this variable is set, when the
+       //operation button is pressed
+       if (clearScreen) {
+           screen = Integer.toString(digit);
+           clearScreen = false;
+       } else {
+           screen = screen + Integer.toString(digit);
+       }
+
+       if (latestOperation.isEmpty()){
+           latestValue = Double.parseDouble(screen);
+       }
     }
 
     public void pressClearKey() {

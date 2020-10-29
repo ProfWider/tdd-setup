@@ -27,4 +27,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("-1", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying two numbers and add a third number")
+    void calculatorCanMultiply() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(6);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("20", calc.readScreen());
+    }
 }

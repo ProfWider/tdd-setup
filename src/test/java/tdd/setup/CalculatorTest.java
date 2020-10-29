@@ -19,7 +19,7 @@ class CalculatorTest {
 }
 class CalculatorTest2 {
     @Test
-    @DisplayName("should display result after suctracting two positive numbers")
+    @DisplayName("should display result after subtracting two positive numbers")
     void calculatorCanDoThreeMinusTwo() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(3);
@@ -52,19 +52,4 @@ class CalculatorTest4 {
         assertEquals("5.4", calc.readScreen());
     }
 }
-/*class CalculatorTest5 {
-    @Test
-    @DisplayName("should display result after adding two positive point numbers")
-    void calculatorCanDoTwoPlusTwo() {
-        Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
-        calc.pressDotKey();
-        calc.pressDigitKey(3);
-        calc.pressOperationKey("+");
-        calc.pressDigitKey(4);
-        calc.pressEquals();
-        assertEquals("6.3", calc.readScreen());
-    }
-}
 
- */

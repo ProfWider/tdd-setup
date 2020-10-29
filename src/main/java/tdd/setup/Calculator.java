@@ -10,6 +10,7 @@ public class Calculator {
     private double firstValue;
 
     private double secondValue;
+    private double thirdValue;
 
     private String latestOperation = "";
 
@@ -22,11 +23,16 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
             firstValue = Double.parseDouble(screen);
+
+        }
+        if(!screen.contains(".")) {
+            latestValue = Double.parseDouble(screen);
+            screen = Integer.toString(digit);
+
         }
             else {
+                screen = screen + digit;
                 latestValue = Double.parseDouble(screen);
-                secondValue = Double.parseDouble(screen+digit);
-                screen = Integer.toString(digit);
             }
         }
 
@@ -49,8 +55,8 @@ public class Calculator {
     }
 
     public void pressEquals() {
-        var result = switch(latestOperation) {
-            case "+" -> secondValue + firstValue; //secondValue => 3,4 & 22 sollte sein => 3,4 & 2
+        var result = switch(latestOperation){
+            case "+" -> firstValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);

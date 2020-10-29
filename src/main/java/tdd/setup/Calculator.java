@@ -31,6 +31,7 @@ public class Calculator {
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        latestValue = 1;
     }
 
     public void pressDotKey() {
@@ -41,9 +42,6 @@ public class Calculator {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
-    public void pressPercentage() {  //selber hinzugefügt
-        latestValue = latestValue / 100;
-    }
 
     public void pressEquals() {
         var result = switch(latestOperation) {

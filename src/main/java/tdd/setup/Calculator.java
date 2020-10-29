@@ -3,7 +3,7 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = "";
 
     private double latestValue;
 
@@ -16,7 +16,10 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            if (screen == "0")
+                screen = Integer.toString(digit);
+            else screen = screen + digit;
+
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);

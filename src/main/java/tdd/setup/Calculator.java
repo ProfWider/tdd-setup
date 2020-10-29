@@ -41,12 +41,17 @@ public class Calculator {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
+    public void pressPercentage() {  //selber hinzugefügt
+        latestValue = latestValue / 100;
+    }
+
     public void pressEquals() {
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            case "%" -> latestValue / 100;
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

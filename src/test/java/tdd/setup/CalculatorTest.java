@@ -41,5 +41,17 @@ class CalculatorTest {
         c2.pressDotKey();
         c2.pressDigitKey(1); */
         assertEquals("1.1", c2.readScreen());
+
     }
+
+        @Test
+        @DisplayName("should display result after pressing percentage")
+        void calculatorCanPercentage() {
+            Calculator c3 = new Calculator();
+            c3.pressDigitKey(1);
+            c3.pressOperationKey("%");
+            c3.pressEquals();
+            assertEquals("0.01", c3.readScreen());
+        }
+
 }

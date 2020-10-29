@@ -16,4 +16,27 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+
+
+    /**
+     * 1. Grüner Test
+     * Press Negative Key
+     * -5 * 2 Ergebnis sollte - 100 sein
+     */
+    @Test
+    void calculatorCanDoMultiplicationWithNegativeNumbers () {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressNegative();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-10", calc.readScreen());
+    }
+
+
+
+
+
 }

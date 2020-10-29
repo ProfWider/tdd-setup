@@ -16,4 +16,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying positive and negative numbers")
+    void calculatorCanDoEightTimesNegativeTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(8);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("-16", calc.readScreen());
+    }
 }

@@ -28,4 +28,18 @@ class CalculatorTest {
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying two decimal numbers")
+    void calculatorCanDoZeroCommaTwoTimesZeroCommaThree() {
+        Calculator calc = new Calculator();
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("x");
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("0.06", calc.readScreen());
+    }
 }
+

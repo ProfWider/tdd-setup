@@ -14,8 +14,8 @@ public class Calculator {
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-
-        if(latestOperation.isEmpty()) {
+        //bug fix for two tests (multi-digits and double number)
+        if(latestOperation.isEmpty() || latestValue != 0.0) {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
@@ -47,6 +47,7 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            case "1/x" -> 1/ Double.parseDouble(screen); //function "1/x"
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

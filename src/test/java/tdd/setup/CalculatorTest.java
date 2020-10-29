@@ -36,4 +36,13 @@ class CalculatorTest {
         calc.pressOperationKey("%");
         assertEquals("0.5", calc.readScreen());
     }
+    
+    @Test
+    // 2.roter Test
+    void NumberStartsWith0() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        assertEquals("20", calc.readScreen());
+    }
 }

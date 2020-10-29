@@ -28,4 +28,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("-16", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying integer and double numbers")
+    void calculatorCanDoEightTimesTwoDotTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(8);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("17.6", calc.readScreen());
+    }
 }

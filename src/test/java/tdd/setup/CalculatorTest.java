@@ -40,4 +40,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("20", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display number with dot")
+    void calculatorCanUseDot() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        assertEquals("2.5", calc.readScreen());
+    }
 }

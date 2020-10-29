@@ -41,5 +41,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0.06", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after multiplying a negative button with a positive number")
+    void calculatorCanDoNegativeButtonTimesThree() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("0", calc.readScreen());
+    }
 }
+
 

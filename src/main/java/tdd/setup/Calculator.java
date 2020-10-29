@@ -1,6 +1,5 @@
 package tdd.setup;
 
-import com.sun.source.tree.ClassTree;
 
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {

@@ -43,6 +43,9 @@ public class Calculator {
 
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        if (screen.equals("-" + "0")) {
+            screen = "0";
+        }
     }
 
     public void pressEquals() {

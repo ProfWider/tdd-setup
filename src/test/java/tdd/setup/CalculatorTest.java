@@ -36,4 +36,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0.3333333333333333", calc.readScreen());
     }
+    
+    @Test
+    @DisplayName("Calculate with numbers up to 1 million")
+    void calculatorMoreNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1000000);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(1000000);
+        calc.pressEquals();
+        assertEquals("1", calc.readScreen());
+    }
 }

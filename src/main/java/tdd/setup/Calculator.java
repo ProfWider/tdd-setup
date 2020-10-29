@@ -34,11 +34,11 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if (!screen.contains(".")) screen = screen + ".";
     }
 
     public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        if (!screen.startsWith("-")) screen = "-" + screen;
     }
 
     public void pressEquals() {

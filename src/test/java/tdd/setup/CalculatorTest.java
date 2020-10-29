@@ -36,7 +36,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0.3333333333333333", calc.readScreen());
     }
-    
+
     @Test
     @DisplayName("Calculate with numbers up to 1 million")
     void calculatorMoreNumbers() {

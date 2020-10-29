@@ -38,5 +38,13 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("100", calc.readScreen());
     }
+    @Test
+    @DisplayName("mein test")
+    void calculatorCanDoJustTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("2", calc.readScreen());
+    }
 
 }

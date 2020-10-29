@@ -28,4 +28,16 @@ class CalculatorTest {
         calc1.pressClearKey();
         assertEquals("0",calc1.readScreen());
     }
+    // First Red Test
+    @Test
+    @DisplayName("should display decimal number")
+    void CalculatorCanDisplayDecimal() {
+        Calculator calc2 = new Calculator();
+        calc2.pressDigitKey(1);
+        calc2.pressDotKey();
+        calc2.pressDigitKey(9);
+        calc2.pressDigitKey(9);
+        calc2.pressEquals();
+        assertEquals("1.99", calc2.readScreen());
+    }
 }

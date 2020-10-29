@@ -1,5 +1,7 @@
 package tdd.setup;
 
+import com.sun.source.tree.ClassTree;
+
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
@@ -18,8 +20,12 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+             if (latestValue == 0) {
+                 latestValue = Double.parseDouble(screen);
+                 screen = "0";
+             }
+           screen = screen + digit;
+
         }
     }
 

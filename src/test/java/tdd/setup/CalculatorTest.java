@@ -16,4 +16,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after pressing clear key")
+    void calculatorCanDisplayZeroResult() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
 }

@@ -36,6 +36,27 @@ class CalculatorTest {
     }
 
 
+    /**
+     * 1. Roter Test
+     * do multiplication with double digit numbers
+     * 20 * 50 = 1000
+     */
+    @Test
+    @DisplayName("Calculator displays correct result of the multiplication of two digit numbers!!")
+    void calcCanDoMultiplicationOfDoubleDigitNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressEquals();
+        assertEquals("200", calc.readScreen());
+    }
+
+
+
+
 
 
 

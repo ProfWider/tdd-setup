@@ -49,6 +49,22 @@ class CalculatorTest4 {
         calc.pressDotKey();
         calc.pressDigitKey(4);
         calc.pressEquals();
+        assertEquals("5.4", calc.readScreen());
+    }
+}
+/*class CalculatorTest5 {
+    @Test
+    @DisplayName("should display result after adding two positive point numbers")
+    void calculatorCanDoTwoPlusTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(4);
+        calc.pressEquals();
         assertEquals("6.3", calc.readScreen());
     }
 }
+
+ */

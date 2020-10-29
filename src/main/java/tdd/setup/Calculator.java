@@ -7,6 +7,10 @@ public class Calculator {
 
     private double latestValue;
 
+    private double firstValue;
+
+    private double secondValue;
+
     private String latestOperation = "";
 
     public String readScreen() {
@@ -17,13 +21,14 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-
-        } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
-
+            firstValue = Double.parseDouble(screen);
         }
-    }
+            else {
+                latestValue = Double.parseDouble(screen);
+                secondValue = Double.parseDouble(screen+digit);
+                screen = Integer.toString(digit);
+            }
+        }
 
     public void pressClearKey() {
         screen = "0";
@@ -45,7 +50,7 @@ public class Calculator {
 
     public void pressEquals() {
         var result = switch(latestOperation) {
-            case "+" -> latestValue + Double.parseDouble(screen);
+            case "+" -> secondValue + firstValue; //secondValue => 3,4 & 22 sollte sein => 3,4 & 2
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);

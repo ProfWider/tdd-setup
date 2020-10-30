@@ -50,4 +50,5 @@ class CalculatorTest {
         calc3.pressEquals();
         assertEquals("200", calc3.readScreen());
     }
+    //System.out.println(calc3.readScreen()); -> Debugger für die Kommandozeile
 }

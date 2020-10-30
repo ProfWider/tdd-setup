@@ -52,10 +52,8 @@ class CalculatorTest {
     @DisplayName("should display result after divide one negative decimal number and negative decimal")
     void calculatorCanUseDecimalNumbers() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(1);
-        calc.pressDigitKey(0);
-        calc.pressDigitKey(0);
+        calc.pressDigitKey(9);
         calc.pressNegative();
-        assertEquals("-100", calc.readScreen());
+        assertEquals("-9", calc.readScreen());
     }
 }

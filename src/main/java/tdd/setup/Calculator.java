@@ -13,7 +13,8 @@ public class Calculator {
         return screen;
     }
     public void pressDigitKey(int digit) {
-        if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+        if(digit > 100 || digit < 0) throw new IllegalArgumentException();
+
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;

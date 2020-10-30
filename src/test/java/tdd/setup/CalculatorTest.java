@@ -59,5 +59,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0.4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after dividing two numbers -solved-")
+    void calculatorCanDoDivSolved() {
+        Calculator calc = new Calculator();
+        calc.pressNegative();
+        calc.pressDigitKey(-2);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("0.4", calc.readScreen());
+    }
+
 
 }

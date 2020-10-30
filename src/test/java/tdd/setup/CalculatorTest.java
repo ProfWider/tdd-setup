@@ -16,4 +16,16 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after divide two numbers")
+    void calculatorCanDoFiveDividedFive()
+    {
+        Calculator calc1 = new Calculator();
+        calc1.pressDigitKey(5);
+        calc1.pressOperationKey("/");
+        calc1.pressDigitKey(5);
+        calc1.pressEquals();
+        assertEquals("1", calc1.readScreen());
+    }
 }

@@ -37,15 +37,15 @@ class CalculatorTest {
         assertEquals("12", calc.readScreen());
     }
 
-
     @Test
-    @DisplayName("should display result after subtracting two positive numbers")
+    @DisplayName("should display result after adding two negative numbers")
     void calculatorCanDoSub() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
-        calc.pressOperationKey("/");
-        calc.pressDigitKey(5);
+        calc.pressNegative();
+        calc.pressDigitKey(-5);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(-4);
         calc.pressEquals();
-        assertEquals("0.4", calc.readScreen());
+        assertEquals("1", calc.readScreen());
     }
 }

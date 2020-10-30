@@ -49,8 +49,8 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display result after divide one negative decimal number and negative decimal")
-    void calculatorCanUseDecimalNumbers() {
+    @DisplayName("Processing negative numbers")
+    void calculatorNegativeNumbers() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(9);
         calc.pressNegative();

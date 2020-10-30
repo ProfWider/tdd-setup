@@ -16,4 +16,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+
+    @Test
+    void canMultiplyTwoNegatives() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("-9", calc.readScreen());
+    }
+
 }

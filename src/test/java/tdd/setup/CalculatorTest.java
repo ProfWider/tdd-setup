@@ -41,10 +41,10 @@ class CalculatorTest {
     @DisplayName("should display result after adding two negative numbers")
     void calculatorCanDoNeg() {
         Calculator calc = new Calculator();
-        calc.pressNegative();
-        calc.pressDigitKey(-5);
+
+        calc.pressDigitKey(5);
         calc.pressOperationKey("+");
-        calc.pressDigitKey(-4);
+        calc.pressDigitKey(4);
         calc.pressEquals();
         assertEquals("1", calc.readScreen());
     }
@@ -65,6 +65,19 @@ class CalculatorTest {
         Calculator calc = new Calculator();
         calc.pressNegative();
         calc.pressDigitKey(-2);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("0.4", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("no name yet ")
+    void calculatorCanDoFloating() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
         calc.pressOperationKey("/");
         calc.pressDigitKey(5);
         calc.pressEquals();

@@ -29,4 +29,13 @@ class CalculatorTest {
         assertEquals("-9", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("the results do not start with the int '0'")
+    void doesntShowNullAtBeginning() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(3);
+        assertEquals("323", calc.readScreen());
+    }
 }

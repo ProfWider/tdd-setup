@@ -16,4 +16,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-}
+        @Test
+        @DisplayName("should display result 3")
+        void calculatorCanDoFiveMinusTwo() {
+            Calculator calc = new Calculator();
+            calc.pressDigitKey(5);
+            calc.pressOperationKey("-");
+            calc.pressDigitKey(2);
+            System.out.println(calc.readScreen());
+            calc.pressEquals();
+            assertEquals("3", calc.readScreen());
+        }
+    }

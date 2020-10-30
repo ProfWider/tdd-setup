@@ -16,4 +16,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    void calculatorCanDo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(19);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(21);
+        calc.pressEquals();
+        assertEquals("40", calc.readScreen());
+    }
+
+
 }

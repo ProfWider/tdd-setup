@@ -22,9 +22,9 @@ class CalculatorTest {
         Calculator calc = new Calculator();
         calc.pressDigitKey(19);
         calc.pressOperationKey("+");
-        calc.pressDigitKey(21);
+        calc.pressDigitKey(70);
         calc.pressEquals();
-        assertEquals("40", calc.readScreen());
+        assertEquals("89", calc.readScreen());
     }
     @Test
     @DisplayName("should display result after multiplying two positive numbers")

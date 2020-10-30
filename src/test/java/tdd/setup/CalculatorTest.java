@@ -26,5 +26,14 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display a double digit")
+    void calculatorCanDisplayDigit() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        assertEquals("3", calc.readScreen());
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
 
 }

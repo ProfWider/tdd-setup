@@ -16,6 +16,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
     @Test
     @DisplayName("should display result after subtracting two positiv digits" )
     void calculatorCanDoTwom) {
@@ -35,5 +36,19 @@ class CalculatorTest {
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
-
+    @Test
+    @DisplayName("should display a double digit")
+    void calculatorCanDisplayDigit() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        assertEquals("3.3", calc.readScreen());
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("10.89", calc.readScreen());
+    }
 }

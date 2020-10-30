@@ -52,11 +52,12 @@ class CalculatorTest {
     @DisplayName("should display result after dividing two numbers")
     void calculatorCanDoDiv() {
         Calculator calc = new Calculator();
+        calc.pressNegative();
         calc.pressDigitKey(-2);
         calc.pressOperationKey("/");
         calc.pressDigitKey(5);
         calc.pressEquals();
-        assertEquals("-0.4", calc.readScreen());
+        assertEquals("0.4", calc.readScreen());
     }
 
 }

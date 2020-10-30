@@ -38,4 +38,14 @@ class CalculatorTest {
         calc.pressDigitKey(3);
         assertEquals("323", calc.readScreen());
     }
+
+    @Test
+    void canDisplayDotCorrectly(){
+        Calculator calc = new Calculator();
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        assertEquals("0.33", calc.readScreen());
+    }
 }

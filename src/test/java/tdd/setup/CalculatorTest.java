@@ -39,7 +39,7 @@ class CalculatorTest {
 
     @Test
     @DisplayName("should display result after adding two negative numbers")
-    void calculatorCanDoSub() {
+    void calculatorCanDoNeg() {
         Calculator calc = new Calculator();
         calc.pressNegative();
         calc.pressDigitKey(-5);
@@ -48,4 +48,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("1", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display result after dividing two numbers")
+    void calculatorCanDoDiv() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(-2);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("-0.4", calc.readScreen());
+    }
+
 }

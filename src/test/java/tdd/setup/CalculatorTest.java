@@ -28,4 +28,13 @@ class CalculatorTest {
         calc1.pressEquals();
         assertEquals("1", calc1.readScreen());
     }
+
+    @Test
+    @DisplayName("should display show the same digit after press 'equals'")
+    void calculatorCanDoSixEquals() {
+        Calculator calc2 = new Calculator();
+        calc2.pressDigitKey(6);
+        calc2.pressEquals();
+        assertEquals("6", calc2.readScreen());
+    }
 }

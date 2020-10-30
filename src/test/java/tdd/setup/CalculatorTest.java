@@ -55,7 +55,7 @@ class CalculatorTest {
     void calculatorCanDoClear() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(2);
-        calc.pressClear();
+        calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
 }

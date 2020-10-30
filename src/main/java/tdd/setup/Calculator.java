@@ -16,7 +16,13 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            if (screen=="0"){
+                screen= "";
+                screen = screen + digit;
+            }
+            else{
+                screen = screen + digit;
+            }
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
@@ -34,7 +40,11 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if (screen.contains(".")){
+            screen=screen;
+        } else{
+            screen = screen + ".";
+        }
     }
 
     public void pressNegative() {
@@ -51,5 +61,8 @@ public class Calculator {
         };
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        if (screen=="Infinity"){
+            screen="Error";
+        }
     }
 }

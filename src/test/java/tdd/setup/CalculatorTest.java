@@ -16,4 +16,47 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+
+    @Test
+    void canMultiplyTwoNegatives() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("x");
+        calc.pressNegative();
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("-9", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("the results do not start with the int '0'")
+    void doesntShowNullAtBeginning() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(3);
+        assertEquals("323", calc.readScreen());
+    }
+
+    @Test
+    void canDisplayDotCorrectly(){
+        Calculator calc = new Calculator();
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        calc.pressDotKey();
+        calc.pressDigitKey(3);
+        assertEquals("0.33", calc.readScreen());
+    }
+
+    @Test
+    @DisplayName("Division durch null")
+    void cantDivideByZero() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(0);
+        calc.pressEquals();
+        assertEquals("Error", calc.readScreen());
+    }
 }

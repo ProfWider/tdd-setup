@@ -37,4 +37,17 @@ class CalculatorTest {
         calc2.pressEquals();
         assertEquals("6", calc2.readScreen());
     }
+
+    @Test
+    @DisplayName("should display show the result of multiplying of two digit numbers")
+    void calculatorCanDoMultiplyTwoTWODIGITNumbers() {
+        Calculator calc3 = new Calculator();
+        calc3.pressDigitKey(1);
+        calc3.pressDigitKey(0);
+        calc3.pressOperationKey("x");
+        calc3.pressDigitKey(2);
+        calc3.pressDigitKey(0);
+        calc3.pressEquals();
+        assertEquals("200", calc3.readScreen());
+    }
 }

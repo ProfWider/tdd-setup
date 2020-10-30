@@ -37,4 +37,16 @@ class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> {calc.pressDigitKey(0);});
     }
 
+    @Test
+    @DisplayName("should display result after adding a digit and decimal number")
+    void calculatorCanAddDecimalNo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("+");
+        calc.pressDigitKey(1);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("3.5", calc.readScreen());
+    }
 }

@@ -16,7 +16,7 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if (digit == 0 && latestOperation.equals("/")) {
-            throw new IllegalArgumentException("divide by zero");
+            throw new IllegalArgumentException("division by zero not possible");
         }
 
         if(latestOperation.isEmpty()) {

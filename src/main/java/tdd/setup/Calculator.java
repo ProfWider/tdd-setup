@@ -1,9 +1,11 @@
 package tdd.setup;
 
+
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
     private String screen = "0";
+
 
     private double latestValue;
 
@@ -18,8 +20,12 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+             if (latestValue == 0) {
+                 latestValue = Double.parseDouble(screen);
+                 screen = "0";
+             }
+           screen = screen + digit;
+
         }
     }
 
@@ -34,11 +40,12 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if(!screen.contains(".")) screen = screen + ".";
     }
 
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+
     }
 
     public void pressEquals() {
@@ -47,6 +54,8 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
+            case "" -> latestValue = Double.parseDouble(screen);
+            //case "" -> latestValue  Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

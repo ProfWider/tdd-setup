@@ -51,4 +51,13 @@ class CalculatorTest {
         assertEquals("200", calc3.readScreen());
     }
     //System.out.println(calc3.readScreen()); -> Debugger für die Kommandozeile
+
+    @Test
+    @DisplayName("should display a negative number")
+    void calculatorCanNegativeANumber() {
+        Calculator calc4 = new Calculator();
+        calc4.pressDigitKey(1);
+        calc4.pressNegative();
+        assertEquals("-1", calc4.readScreen());
+    }
 }

@@ -24,6 +24,12 @@ public class Calculator {
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
+            //Bugfix zum 3.Test
+            if(!screen.contains(".")){
+            screen = Integer.toString(digit);
+        } else {
+            screen = "0" + "." + digit;
+            }
         }
     }
 
@@ -47,6 +53,8 @@ public class Calculator {
 
     public void pressDotKey() {
         if(!screen.endsWith(".")) screen = screen + ".";
+        //Bugfix zum 3.Test
+        if(!screen.contains(".")) screen = screen + ".";
     }
 
     public void pressNegative() {

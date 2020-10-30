@@ -56,8 +56,9 @@ class CalculatorTest {
     @DisplayName("should display a negative number")
     void calculatorCanNegativeANumber() {
         Calculator calc4 = new Calculator();
-        calc4.pressDigitKey(1);
+        calc4.pressDigitKey(8);
         calc4.pressNegative();
-        assertEquals("-1", calc4.readScreen());
+        System.out.println("Was bisher rauskommt: " + calc4.readScreen());
+        assertEquals("-8", calc4.readScreen());
     }
 }

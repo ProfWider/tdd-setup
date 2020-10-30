@@ -16,15 +16,27 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-        @Test
-        @DisplayName("should display result 3")
-        void calculatorCanDoFiveMinusTwo() {
-            Calculator calc = new Calculator();
-            calc.pressDigitKey(5);
-            calc.pressOperationKey("-");
-            calc.pressDigitKey(2);
-            System.out.println(calc.readScreen());
-            calc.pressEquals();
-            assertEquals("3", calc.readScreen());
-        }
+
+    @Test
+    @DisplayName("should display result 3")
+    void calculatorCanDoFiveMinusTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(2);
+        System.out.println(calc.readScreen());
+        calc.pressEquals();
+        assertEquals("3", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result 5.5")
+    void calculatorCanShowDecimal() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        System.out.println(calc.readScreen());
+        assertEquals("5.5", calc.readScreen());
+    }
+}

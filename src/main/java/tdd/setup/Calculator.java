@@ -14,6 +14,12 @@ public class Calculator {
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
+        isCleared = false;
+        if (isCleared){
+            screen = "0";
+        } else{
+            screen = "";
+        }
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
@@ -27,6 +33,7 @@ public class Calculator {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+        isCleared = true;
     }
 
     public void pressOperationKey(String operation)  {

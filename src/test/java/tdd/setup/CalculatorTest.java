@@ -47,4 +47,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("1", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display result after divide one negative decimal number and negative decimal")
+    void calculatorCanUseDecimalNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressDigitKey(0);
+        calc.pressNegative();
+        assertEquals("-100", calc.readScreen());
+    }
 }

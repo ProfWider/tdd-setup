@@ -12,10 +12,12 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(latestOperation.isEmpty()) {
+        //Bug-Fix No 2
+        if(latestOperation.isEmpty() || !(latestValue == 0.0)) {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
@@ -37,12 +39,18 @@ public class Calculator {
         if(!screen.endsWith(".")) screen = screen + ".";
     }
 
+    //Bug-Fix No 3
     public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        if (screen.startsWith("-")) {
+            screen = screen.substring(1);
+        } else{
+            screen = "-" + screen.substring(1);
+        }
     }
 
     public void pressEquals() {
         var result = switch(latestOperation) {
+            case "" -> Double.parseDouble(screen); //Bug-Fix No 1
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);

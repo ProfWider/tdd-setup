@@ -16,6 +16,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
     @Test
     @DisplayName("mein test")
     void calculatorCanDoTwoMinusTwo() {
@@ -26,6 +27,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0", calc.readScreen());
     }
+
     @Test
     @DisplayName("mein test")
     void calculatorCanDoEightyPlusTwenty() {
@@ -38,6 +40,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("100", calc.readScreen());
     }
+
     @Test
     @DisplayName("mein test")
     void calculatorCanDoJustTwo() {
@@ -47,4 +50,13 @@ class CalculatorTest {
         assertEquals("2", calc.readScreen());
     }
 
+    @Test
+    @DisplayName("mein test")
+    void calculatorCanDoClear() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressClear();
+        assertEquals("0", calc.readScreen());
+    }
 }
+

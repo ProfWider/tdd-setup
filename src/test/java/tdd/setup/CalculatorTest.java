@@ -39,4 +39,13 @@ class CalculatorTest {
         System.out.println(calc.readScreen());
         assertEquals("5.5", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should display same digit after pressing Equals without an operation")
+    void calculatorCanDoFourEquals() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressEquals();
+        assertEquals("5", calc.readScreen());
+    }
 }

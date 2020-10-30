@@ -6,6 +6,7 @@ public class Calculator {
 
     private String screen = "0";
 
+
     private double latestValue;
 
     private String latestOperation = "";
@@ -44,6 +45,7 @@ public class Calculator {
 
     public void pressNegative() {
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+
     }
 
     public void pressEquals() {

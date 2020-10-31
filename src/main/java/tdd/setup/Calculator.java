@@ -43,6 +43,9 @@ public class Calculator {
 
     public void pressEquals() {
         var result = switch(latestOperation) {
+
+            // Fix zu diesem Test
+            case ""  -> Double.parseDouble(screen);
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);

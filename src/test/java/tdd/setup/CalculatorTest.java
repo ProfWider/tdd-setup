@@ -16,7 +16,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-// neuer roter Test
+//  Fix zu diesem Test
     @Test
     @DisplayName("display should show the same digit after pressing 'equals'")
     void calculatorCanDoSevenEquals() {

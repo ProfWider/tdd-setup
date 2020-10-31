@@ -3,7 +3,7 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = "";
 
     private double latestValue;
 
@@ -14,20 +14,18 @@ public class Calculator {
     }
     public void pressDigitKey(int digit) {
         
+        //Bugfix zum 2.Test
+        if (digit != 0 && screen.startsWith("0")) screen = "";
+        
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-        //Bugfix zum Dot Roten Test
-            } else {
-            latestValue = Double.parseDouble(screen);
-            if(!screen.contains(".")){
-                screen = Integer.toString(digit);
-            } else {
-                screen = "0" + "." + digit;
-            }
         }
-        
+        else {
+            latestValue = Double.parseDouble(screen);
+            screen = Integer.toString(digit);
+        }
     }
 
     public void pressClearKey() {
@@ -50,7 +48,7 @@ public class Calculator {
 
     public void pressDotKey() {
         //Bugfix zum Dot Roten Test
-        if(!screen.contains(".")) screen = screen + ".";
+        if(!screen.endsWith(".")) screen = screen + ".";
     }
 
     public void pressNegative() {

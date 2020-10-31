@@ -16,4 +16,45 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    
+    @Test
+    // neuer grüner Test
+    void calculatorCanDoTwoMinusTwo() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressOperationKey("-");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        assertEquals("0", calc.readScreen());
+    }
+    @Test
+    // neuer roter Test
+    void calculatorPercentage() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(0);
+        calc.pressOperationKey("%");
+        assertEquals("0.5", calc.readScreen());
+    }
+    
+    @Test
+    // 2.roter Test
+    void NumberStartsWith0() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        assertEquals("20", calc.readScreen());
+    }
+    
+    @Test
+    // 3.roter Test
+    void Dot() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        assertEquals("5.5", calc.readScreen());
+        
+    }
+    
 }

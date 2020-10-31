@@ -4,19 +4,19 @@ package tdd.setup;
 public class Calculator {
 
     private String screen = "0";
-
     private double latestValue;
-
     private String latestOperation = "";
 
     public String readScreen() {
         return screen;
     }
     public void pressDigitKey(int digit) {
+
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
+
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
@@ -42,13 +42,29 @@ public class Calculator {
     }
 
     public void pressEquals() {
-        var result = switch(latestOperation) {
-            case "+" -> latestValue + Double.parseDouble(screen);
-            case "-" -> latestValue - Double.parseDouble(screen);
-            case "x" -> latestValue * Double.parseDouble(screen);
-            case "/" -> latestValue / Double.parseDouble(screen);
-            default -> throw new IllegalArgumentException();
-        };
+
+        double result;
+
+            switch (latestOperation) {
+                case "+":
+                    result = latestValue + Double.parseDouble(screen);
+                    break;
+                case "-":
+                    result = latestValue - Double.parseDouble(screen);
+                    break;
+                case "x":
+                    result = latestValue * Double.parseDouble(screen);
+                    break;
+                case "/":
+                    result = latestValue / Double.parseDouble(screen);
+                    break;
+                case "":
+                    result = Double.parseDouble(screen);
+                    break;
+
+                default: throw new IllegalArgumentException();
+            }
+
         screen = Double.toString(result);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }

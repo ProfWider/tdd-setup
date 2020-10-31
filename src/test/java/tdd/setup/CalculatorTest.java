@@ -50,13 +50,11 @@ class CalculatorTest {
     // 3.roter Test
     void Dot() {
         Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
         calc.pressDotKey();
         calc.pressDigitKey(5);
-        calc.pressOperationKey("x");
-        calc.pressDotKey();
-        calc.pressDigitKey(2);
-        calc.pressEquals();
-        assertEquals("0.1", calc.readScreen());
+        assertEquals("5.5", calc.readScreen());
+        
     }
     
 }

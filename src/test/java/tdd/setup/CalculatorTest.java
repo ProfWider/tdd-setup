@@ -16,4 +16,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    // Analysieren Sie das Verhalten der Klasse Calculator und finden Sie Abweichungen im Vergleich zu www.online-calculator.com
+    // verglichen mit dem Taschenrechner erkennen wir, dass in unserem code mehrere methoden fehlen. zum Beispiel zum Ausführen
+    // Prozent rechnungen oder die wurzel ziehen, oder rückwerz
 }

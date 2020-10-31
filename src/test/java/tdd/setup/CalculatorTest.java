@@ -16,4 +16,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+    @Test
+    @DisplayName("should display clear result after divide two positive numbers")
+    void calculatorCanClearDisplay() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(3);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(2);
+        calc.pressEquals();
+        calc.pressClearKey();
+        assertEquals("0", calc.readScreen());
+    }
 }

@@ -16,15 +16,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-//  Fix zu diesem Test
     @Test
-    @DisplayName("display should show the same digit after pressing 'equals'")
-    void calculatorCanDoSevenEquals() {
+    @DisplayName("display should show String 'Error' after pressing 'equals'")
+    void calculatorCanDivideFourByZeroEquals() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(7);
+        calc.pressDigitKey(4);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(0);
         calc.pressEquals();
-        assertEquals("7", calc.readScreen());
-
-
+        assertEquals("Error", calc.readScreen());
     }
+
+
+
+
 };

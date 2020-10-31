@@ -3,7 +3,7 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = "";
 
     private double latestValue;
 
@@ -37,8 +37,11 @@ public class Calculator {
         if(!screen.endsWith(".")) screen = screen + ".";
     }
 
-    public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+    public void pressNegative(){
+        if(!screen.startsWith("-")) screen = "-" + screen;
+        else {
+            if (!screen.endsWith("-")) screen = screen + "-";
+        }
     }
 
     public void pressEquals() {

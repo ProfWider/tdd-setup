@@ -3,7 +3,7 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = "";
 
     private double latestValue;
 
@@ -12,25 +12,31 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
+
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
-
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            screen +=  digit;
+        } else if(screen.contains(".")) {
+            screen += Integer.toString(digit);
+            System.out.println(latestValue);
         } else {
-            latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
+            System.out.println(latestValue);
         }
     }
 
     public void pressClearKey() {
         screen = "0";
-        latestOperation = "";
+        latestOperation = "0";
         latestValue = 0.0;
+
     }
 
     public void pressOperationKey(String operation)  {
         latestOperation = operation;
+        latestValue = Double.parseDouble(screen);
+        screen = "";
     }
 
     public void pressDotKey() {
@@ -42,6 +48,8 @@ public class Calculator {
     }
 
     public void pressEquals() {
+        System.out.println(screen);
+        System.out.println(latestValue +", screen: " +screen + "operation: " + (latestValue * Double.parseDouble(screen)));
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
@@ -49,7 +57,10 @@ public class Calculator {
             case "/" -> latestValue / Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
-        screen = Double.toString(result);
+
+        screen = Double.toString(Math.round( 100.0 * result) / 100.0);
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
+        latestOperation = "";
+
     }
 }

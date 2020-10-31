@@ -16,4 +16,18 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-}
+    @Test
+    @DisplayName("display should show String 'Error' after pressing 'equals'")
+    void calculatorCanDivideFourByZeroEquals() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(4);
+        calc.pressOperationKey("/");
+        calc.pressDigitKey(0);
+        calc.pressEquals();
+        assertEquals("Error", calc.readScreen());
+    }
+// 5. Fix zu diesem Test  PASSED
+
+
+
+};

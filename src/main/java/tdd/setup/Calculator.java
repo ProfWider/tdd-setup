@@ -9,8 +9,14 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    // 5. Fix zu diesem Test
+
     public String readScreen() {
+        if ( Double.parseDouble(screen) == -1 ) {
+            screen = "Error";
+        }
         return screen;
+
     }
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
@@ -43,10 +49,12 @@ public class Calculator {
 
     public void pressEquals() {
         var result = switch(latestOperation) {
+
+
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
-            case "/" -> latestValue / Double.parseDouble(screen);
+            case "/" ->  ( Double.parseDouble(screen) == 0 ) ?  -1 :  latestValue / Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);

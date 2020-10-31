@@ -18,15 +18,13 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
+            
         } else {
             latestValue = Double.parseDouble(screen);
-            
-            //Bugfix zum 3.Test
-            
             if(!screen.contains(".")){
-            screen = Integer.toString(digit);
-        } else {
-            screen = "0" + "." + digit;
+                screen = Integer.toString(digit);
+            } else {
+                screen = "0" + "." + digit;
             }
         }
     }

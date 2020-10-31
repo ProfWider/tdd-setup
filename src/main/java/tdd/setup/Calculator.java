@@ -14,16 +14,15 @@ public class Calculator {
     }
     public void pressDigitKey(int digit) {
         
-        //Bugfix zum 2.Test
-        if(digit != 0 && screen.startsWith("0")) screen = "";
-        
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
+            
             //Bugfix zum 3.Test
+            
             if(!screen.contains(".")){
             screen = Integer.toString(digit);
         } else {

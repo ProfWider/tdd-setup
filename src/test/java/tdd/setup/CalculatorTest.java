@@ -26,7 +26,7 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("Error", calc.readScreen());
     }
-
+// 5. Fix zu diesem Test  PASSED
 
 
 

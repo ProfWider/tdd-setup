@@ -16,17 +16,15 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-
-    // Schreiben Sie einen neuen zusätzlichen Test, der eine bisher nicht getestete Funktionalität abdeckt, die bereits funktioniert
+// neuer roter Test
     @Test
-    @DisplayName("should display result after multiplicated two positive numbers")
-    void calculatorCanDoFourTimesThree() {
+    @DisplayName("display should show the same digit after pressing 'equals'")
+    void calculatorCanDoSevenEquals() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(4);
-        calc.pressOperationKey("x");
-        calc.pressDigitKey(3);
+        calc.pressDigitKey(7);
         calc.pressEquals();
-        assertEquals("12", calc.readScreen());
-    }
+        assertEquals("7", calc.readScreen());
 
-}
+
+    }
+};

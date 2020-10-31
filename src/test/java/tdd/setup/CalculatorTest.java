@@ -5,9 +5,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Retro calculator")
+
 class CalculatorTest {
+
     @Test
     @DisplayName("should display result after adding two positive numbers")
+        // given test
     void calculatorCanDoTwoPlusTwo() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(2);
@@ -16,73 +19,41 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-    @Test
-    @DisplayName("should display result after adding two positive numbers -test-")
-    void calculatorCanDoAdd() {
-        Calculator calc = new Calculator();
-        calc.pressDigitKey(19);
-        calc.pressOperationKey("+");
-        calc.pressDigitKey(70);
-        calc.pressEquals();
-        assertEquals("89", calc.readScreen());
-    }
+
     @Test
     @DisplayName("should display result after multiplying two positive numbers")
-    void calculatorCanDoMultiply() {
+        // green test other functionality tested
+    void calculatorCanDoMulti() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(4);
+        calc.pressDigitKey(5);
         calc.pressOperationKey("x");
         calc.pressDigitKey(3);
         calc.pressEquals();
-        assertEquals("12", calc.readScreen());
+        assertEquals("15", calc.readScreen());
     }
 
     @Test
-    @DisplayName("should display result after adding two negative numbers")
-    void calculatorCanDoNeg() {
+    @DisplayName("executable with none of the given operations ")
+        // 1st red test
+        // 1st green test after code alteration in class Calculator
+    void calculatorCanDoAddTwoFloating() {
         Calculator calc = new Calculator();
-
-        calc.pressDigitKey(5);
-        calc.pressOperationKey("+");
-        calc.pressDigitKey(4);
+        calc.pressDotKey();
         calc.pressEquals();
-        assertEquals("1", calc.readScreen());
+        assertEquals("0", calc.readScreen());
     }
+
     @Test
-    @DisplayName("should display result after dividing two numbers")
-    void calculatorCanDoDiv() {
+    @DisplayName("should display result after dividing by a floating number")
+        // 2nd red test
+    void calculatorCanDoDivByFloating() {
         Calculator calc = new Calculator();
-        calc.pressNegative();
-        calc.pressDigitKey(-2);
+        calc.pressDigitKey(5);
         calc.pressOperationKey("/");
-        calc.pressDigitKey(5);
-        calc.pressEquals();
-        assertEquals("0.4", calc.readScreen());
-    }
-    @Test
-    @DisplayName("should display result after dividing two numbers -solved-")
-    void calculatorCanDoDivSolved() {
-        Calculator calc = new Calculator();
-        calc.pressNegative();
-        calc.pressDigitKey(-2);
-        calc.pressOperationKey("/");
-        calc.pressDigitKey(5);
-        calc.pressEquals();
-        assertEquals("0.4", calc.readScreen());
-    }
-
-    @Test
-    @DisplayName("no name yet ")
-    void calculatorCanDoFloating() {
-        Calculator calc = new Calculator();
         calc.pressDigitKey(2);
         calc.pressDotKey();
         calc.pressDigitKey(5);
-        calc.pressOperationKey("/");
-        calc.pressDigitKey(5);
         calc.pressEquals();
-        assertEquals("0.4", calc.readScreen());
+        assertEquals("2", calc.readScreen());
     }
-
-
 }

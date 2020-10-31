@@ -36,4 +36,13 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0.3333333333333333", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("Processing negative numbers")
+    void calculatorNegativeNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(9);
+        calc.pressNegative();
+        assertEquals("-9", calc.readScreen());
+    }
 }

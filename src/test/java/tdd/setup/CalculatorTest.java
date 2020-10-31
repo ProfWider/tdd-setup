@@ -48,7 +48,7 @@ class CalculatorTest {
     
     @Test
     // 3.roter Test
-    void DotTest() {
+    void Dot() {
         Calculator calc = new Calculator();
         calc.pressDotKey();
         calc.pressDigitKey(5);
@@ -57,5 +57,6 @@ class CalculatorTest {
         calc.pressDigitKey(2);
         calc.pressEquals();
         assertEquals("0.1", calc.readScreen());
-      }
+    }
+    
 }

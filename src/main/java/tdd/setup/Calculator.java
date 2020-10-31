@@ -18,8 +18,8 @@ public class Calculator {
 
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
-            
-        } else {
+        //Bugfix zum Dot Roten Test
+            } else {
             latestValue = Double.parseDouble(screen);
             if(!screen.contains(".")){
                 screen = Integer.toString(digit);
@@ -27,6 +27,7 @@ public class Calculator {
                 screen = "0" + "." + digit;
             }
         }
+        
     }
 
     public void pressClearKey() {
@@ -48,7 +49,7 @@ public class Calculator {
     }
 
     public void pressDotKey() {
-        //Bugfix zum 3.Test
+        //Bugfix zum Dot Roten Test
         if(!screen.contains(".")) screen = screen + ".";
     }
 

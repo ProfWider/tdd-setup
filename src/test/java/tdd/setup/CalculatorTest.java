@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Retro calculator")
 class CalculatorTest {
+
     @Test
     @DisplayName("should display result after adding two positive numbers")
     void calculatorCanDoTwoPlusTwo() {
@@ -19,7 +20,7 @@ class CalculatorTest {
 
     @Test
     @DisplayName("should display result after subtracting two positiv digits" )
-    void calculatorCanDoTwom) {
+    void calculatorCanDoTwoMinusTwo() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(2);
         calc.pressOperationKey("-");
@@ -27,15 +28,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("0", calc.readScreen());
     }
+
     @Test
     @DisplayName("should display a double digit")
-    void calculatorCanDisplayDigit() {
+    void calculatorCanDisplaySomething() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(3);
         assertEquals("3", calc.readScreen());
         calc.pressClearKey();
         assertEquals("0", calc.readScreen());
     }
+
     @Test
     @DisplayName("should display a double digit")
     void calculatorCanDisplayDigit() {

@@ -16,7 +16,17 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
-    // Analysieren Sie das Verhalten der Klasse Calculator und finden Sie Abweichungen im Vergleich zu www.online-calculator.com
-    // verglichen mit dem Taschenrechner erkennen wir, dass in unserem code mehrere methoden fehlen. zum Beispiel zum Ausführen
-    // Prozent rechnungen oder die wurzel ziehen, oder rückwerz
+
+    // Schreiben Sie einen neuen zusätzlichen Test, der eine bisher nicht getestete Funktionalität abdeckt, die bereits funktioniert
+    @Test
+    @DisplayName("should display result after multiplicated two positive numbers")
+    void calculatorCanDoFourTimesThree() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(4);
+        calc.pressOperationKey("x");
+        calc.pressDigitKey(3);
+        calc.pressEquals();
+        assertEquals("12", calc.readScreen());
+    }
+
 }

@@ -25,4 +25,15 @@ class CalculatorTest {
         c.pressClearKey();
         assertEquals("0", c.readScreen());
     }
+
+    @Test
+    @DisplayName("should display the correct number")
+    void showCorrectInput(){
+        Calculator c = new Calculator();
+        c.pressDigitKey(5);
+        c.readScreen();
+        assertEquals("5", c.readScreen());
+    }
+
+
 }

@@ -16,7 +16,7 @@ public class Calculator {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
         if(latestOperation.isEmpty()) {
-            screen = screen + digit;
+            screen = (screen == "0") ? Integer.toString(digit) : screen + digit;
         } else {
             latestValue = Double.parseDouble(screen);
             screen = Integer.toString(digit);
@@ -38,7 +38,7 @@ public class Calculator {
     }
 
     public void pressNegative() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        screen = screen.startsWith("-") ? screen.substring(1) : "-";
     }
 
     public void pressEquals() {

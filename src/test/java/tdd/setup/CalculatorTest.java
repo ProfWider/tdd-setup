@@ -16,4 +16,50 @@ class CalculatorTest {
         calc.pressEquals();
         assertEquals("4", calc.readScreen());
     }
+
+    @Test
+    @DisplayName("should return zero when the delete key is pressed")
+    void PressClearKey() {
+        Calculator calculator = new Calculator();
+        calculator.pressDigitKey(2);
+        calculator.pressClearKey();
+        assertEquals("0", calculator.readScreen());
+
+    }
+
+    @Test
+    @DisplayName("should return a dot on display")
+    void PressDotKey() {
+        Calculator calculator = new Calculator();
+        calculator.pressDigitKey(2);
+        calculator.pressDotKey();
+        calculator.pressDigitKey(2);
+        assertEquals("2.2", calculator.readScreen());
+
+    }
+    @Test
+    @DisplayName("should return a negative number on display")
+    void PressNegative() {
+        Calculator calculator = new Calculator();
+        calculator.pressNegative();
+        calculator.pressDigitKey(4);
+        assertEquals("-4", calculator.readScreen());
+    }
+
+
+    @Test
+    @DisplayName("calculator can add decimal numbers")
+   void pressEquals(){ Calculator calculator = new Calculator();
+        calculator.pressDigitKey(2);
+        calculator.pressDotKey();
+        calculator.pressDigitKey(2);
+        calculator.pressOperationKey("+");
+        calculator.pressDigitKey(2);
+        calculator.pressDotKey();
+        calculator.pressDigitKey(2);
+        calculator.pressEquals();
+        assertEquals("4.4", calculator.readScreen());
+    }
 }
+
+

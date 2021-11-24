@@ -3,9 +3,9 @@ package tdd.setup;
 // behaviour inspired by https://www.online-calculator.com/
 public class Calculator {
 
-    private String screen = "0";
+    private String screen = "";
 
-    private double latestValue;
+    private String latestValue = "";
 
     private String latestOperation = "";
 
@@ -18,23 +18,30 @@ public class Calculator {
         if(latestOperation.isEmpty()) {
             screen = screen + digit;
         } else {
-            latestValue = Double.parseDouble(screen);
-            screen = Integer.toString(digit);
+            latestValue = latestValue + digit;
+
+
         }
     }
 
     public void pressClearKey() {
         screen = "0";
         latestOperation = "";
-        latestValue = 0.0;
+        latestValue = "0";
     }
 
     public void pressOperationKey(String operation)  {
+
         latestOperation = operation;
     }
 
     public void pressDotKey() {
-        if(!screen.endsWith(".")) screen = screen + ".";
+        if(!latestValue.endsWith(".") && latestValue != "") {
+            latestValue = latestValue + ".";
+
+        } else if(!screen.endsWith(".")) {
+            screen = screen + ".";
+        }
     }
 
     public void pressNegative() {
@@ -43,10 +50,10 @@ public class Calculator {
 
     public void pressEquals() {
         var result = switch(latestOperation) {
-            case "+" -> latestValue + Double.parseDouble(screen);
-            case "-" -> latestValue - Double.parseDouble(screen);
-            case "x" -> latestValue * Double.parseDouble(screen);
-            case "/" -> latestValue / Double.parseDouble(screen);
+            case "+" -> Double.parseDouble(latestValue) + Double.parseDouble(screen);
+            case "-" -> Double.parseDouble(latestValue) - Double.parseDouble(screen);
+            case "x" -> Double.parseDouble(latestValue) * Double.parseDouble(screen);
+            case "/" -> Double.parseDouble(latestValue) / Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
         screen = Double.toString(result);
